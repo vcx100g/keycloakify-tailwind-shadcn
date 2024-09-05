@@ -8,7 +8,7 @@ import { useInsertLinkTags } from "keycloakify/tools/useInsertLinkTags";
 import { useSetClassName } from "keycloakify/tools/useSetClassName";
 import type { I18n } from "./i18n";
 import type { KcContext } from "./KcContext";
-
+import "./global.css";
 export default function Template(props: TemplateProps<KcContext, I18n>) {
     const {
         displayInfo = false,

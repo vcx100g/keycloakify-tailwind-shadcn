@@ -26,25 +26,30 @@
     "license": "MIT",
     "keywords": [],
     "dependencies": {
+        "class-variance-authority": "^0.7.0",
+        "clsx": "^2.1.1",
         "keycloakify": "^10.0.5",
+        "lucide-react": "^0.438.0",
         "react": "^18.2.0",
-        "react-dom": "^18.2.0"
+        "react-dom": "^18.2.0",
+        "tailwind-merge": "^2.5.2",
+        "tailwindcss-animate": "^1.0.7"
     },
     "devDependencies": {
-        "@types/react": "^18.2.43",
-        "@types/react-dom": "^18.2.17",
-        "prettier": "3.3.1",
-        "typescript": "~5.1.6",
-        "rimraf": "^5.0.5",
-        "react-scripts": "5.0.1",
         "@storybook/blocks": "^8.1.9",
         "@storybook/preset-create-react-app": "^8.1.9",
         "@storybook/react": "^8.1.9",
         "@storybook/react-webpack5": "^8.1.9",
         "@storybook/test": "^8.1.9",
+        "@types/react": "^18.2.43",
+        "@types/react-dom": "^18.2.17",
         "eslint-plugin-storybook": "^0.8.0",
+        "prettier": "3.3.1",
         "prop-types": "^15.8.1",
+        "react-scripts": "5.0.1",
+        "rimraf": "^5.0.5",
         "storybook": "^8.1.9",
+        "typescript": "~5.1.6",
         "webpack": "^5.92.0"
     },
     "eslintConfig": {
