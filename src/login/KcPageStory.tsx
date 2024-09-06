@@ -43,3 +43,29 @@ export function createKcPageStory<PageId extends KcContext["pageId"]>(params: {
 
     return { KcPageStory };
 }
+// export function createKcPageStory<PageId extends KcContext["pageId"]>(params: {
+//     pageId: PageId;
+// }) {
+//     const { pageId } = params;
+
+//     // Returns a configured version of KcPage
+//     function KcPageStoryWrapper(props: {
+//         kcContext?: DeepPartial<Extract<KcContext, { pageId: PageId }>>;
+//         legacy?: boolean; // Optionally pass the legacy flag
+//     }) {
+//         const { kcContext: overrides, legacy = false } = props;
+
+//         console.log("Legacy flag in createKcPageStoryWrapper:", legacy);
+
+//         // Mock the KcContext based on pageId and overrides
+//         const kcContextMock = getKcContextMock({
+//             pageId,
+//             overrides
+//         });
+
+//         // Render the actual KcPage with the legacy flag and mocked kcContext
+//         return <KcPage kcContext={kcContextMock} legacy={legacy} />;
+//     }
+
+//     return { KcPageStoryWrapper };
+// }
