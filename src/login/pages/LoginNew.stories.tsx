@@ -5,7 +5,8 @@ const { KcPageStory } = createKcPageStory({ pageId: "login.ftl" });
 
 const meta = {
     title: "login/login.ftl/new",
-    component: KcPageStory
+    component: KcPageStory,
+    args: { legacy: false }
 } satisfies Meta<typeof KcPageStory>;
 
 export default meta;
@@ -13,8 +14,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-    render: args => <KcPageStory {...args} />,
-    args: { legacy: false }
+    render: args => <KcPageStory {...args} />
 };
 
 export const WithInvalidCredential: Story = {
@@ -41,7 +41,7 @@ export const WithInvalidCredential: Story = {
                 }
             }}
         />
-    ) // Spread the args to pass ORG_EN and other props
+    )
 };
 
 export const WithoutRegistration: Story = {
@@ -52,7 +52,7 @@ export const WithoutRegistration: Story = {
                 realm: { registrationAllowed: false }
             }}
         />
-    ) // Spread the args to pass ORG_EN and other props
+    )
 };
 
 export const WithoutRememberMe: Story = {
@@ -63,7 +63,7 @@ export const WithoutRememberMe: Story = {
                 realm: { rememberMe: false }
             }}
         />
-    ) // Spread the args to pass ORG_EN and other props
+    )
 };
 
 export const WithoutPasswordReset: Story = {
@@ -74,7 +74,7 @@ export const WithoutPasswordReset: Story = {
                 realm: { resetPasswordAllowed: false }
             }}
         />
-    ) // Spread the args to pass ORG_EN and other props
+    )
 };
 
 export const WithEmailAsUsername: Story = {
@@ -85,7 +85,7 @@ export const WithEmailAsUsername: Story = {
                 realm: { loginWithEmailAllowed: false }
             }}
         />
-    ) // Spread the args to pass ORG_EN and other props
+    )
 };
 
 export const WithPresetUsername: Story = {
@@ -96,7 +96,7 @@ export const WithPresetUsername: Story = {
                 login: { username: "max.mustermann@mail.com" }
             }}
         />
-    ) // Spread the args to pass ORG_EN and other props
+    )
 };
 
 export const WithImmutablePresetUsername: Story = {
@@ -115,7 +115,7 @@ export const WithImmutablePresetUsername: Story = {
                 }
             }}
         />
-    ) // Spread the args to pass ORG_EN and other props
+    )
 };
 
 export const WithSocialProviders: Story = {
@@ -214,7 +214,7 @@ export const WithSocialProviders: Story = {
                 }
             }}
         />
-    ) // Spread the args to pass ORG_EN and other props
+    )
 };
 
 export const WithoutPasswordField: Story = {
@@ -225,7 +225,7 @@ export const WithoutPasswordField: Story = {
                 realm: { password: false }
             }}
         />
-    ) // Spread the args to pass ORG_EN and other props
+    )
 };
 
 export const WithErrorMessage: Story = {
@@ -239,5 +239,5 @@ export const WithErrorMessage: Story = {
                 }
             }}
         />
-    ) // Spread the args to pass ORG_EN and other props
+    )
 };

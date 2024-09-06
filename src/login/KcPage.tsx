@@ -53,27 +53,23 @@ export default function KcPage(props: KcPageArgs) {
             {(() => {
                 switch (kcContext.pageId) {
                     case "login.ftl":
+                        if (legacy) {
+                            return (
+                                <Base
+                                    kcContext={kcContext}
+                                    i18n={i18n}
+                                    classes={classesDefault}
+                                />
+                            );
+                        }
                         return (
-                            <div>
-                                {/* Render Base if `legacy` is true */}
-                                {legacy && (
-                                    <Base
-                                        kcContext={kcContext}
-                                        i18n={i18n}
-                                        classes={classesDefault}
-                                    />
-                                )}
-                                {/* Render Login if `legacy` is false */}
-                                {!legacy && (
-                                    <Login
-                                        kcContext={kcContext}
-                                        i18n={i18n}
-                                        classes={classescustom}
-                                        Template={CustomTemplate}
-                                        doUseDefaultCss={true}
-                                    />
-                                )}
-                            </div>
+                            <Login
+                                kcContext={kcContext}
+                                i18n={i18n}
+                                classes={classescustom}
+                                Template={CustomTemplate}
+                                doUseDefaultCss={true}
+                            />
                         );
 
                     default:

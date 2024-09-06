@@ -5,7 +5,10 @@ const { KcPageStory } = createKcPageStory({ pageId: "login.ftl" });
 
 const meta = {
     title: "login/login.ftl/legacy",
-    component: KcPageStory
+    component: KcPageStory,
+    args: {
+        legacy: true // Default args that will apply to all stories unless overridden
+    }
 } satisfies Meta<typeof KcPageStory>;
 
 export default meta;
@@ -13,12 +16,10 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-    render: args => <KcPageStory {...args} />,
-    args: { legacy: true }
+    render: args => <KcPageStory {...args} />
 };
 
 export const WithInvalidCredential: Story = {
-    args: { legacy: true },
     render: args => (
         <KcPageStory
             {...args}
@@ -42,11 +43,10 @@ export const WithInvalidCredential: Story = {
                 }
             }}
         />
-    ) // Spread the args to pass ORG_EN and other props
+    ) 
 };
 
 export const WithoutRegistration: Story = {
-    args: { legacy: true },
     render: args => (
         <KcPageStory
             {...args}
@@ -54,11 +54,10 @@ export const WithoutRegistration: Story = {
                 realm: { registrationAllowed: false }
             }}
         />
-    ) // Spread the args to pass ORG_EN and other props
+    ) 
 };
 
 export const WithoutRememberMe: Story = {
-    args: { legacy: true },
     render: args => (
         <KcPageStory
             {...args}
@@ -66,11 +65,10 @@ export const WithoutRememberMe: Story = {
                 realm: { rememberMe: false }
             }}
         />
-    ) // Spread the args to pass ORG_EN and other props
+    ) 
 };
 
 export const WithoutPasswordReset: Story = {
-    args: { legacy: true },
     render: args => (
         <KcPageStory
             {...args}
@@ -78,11 +76,10 @@ export const WithoutPasswordReset: Story = {
                 realm: { resetPasswordAllowed: false }
             }}
         />
-    ) // Spread the args to pass ORG_EN and other props
+    ) 
 };
 
 export const WithEmailAsUsername: Story = {
-    args: { legacy: true },
     render: args => (
         <KcPageStory
             {...args}
@@ -90,11 +87,10 @@ export const WithEmailAsUsername: Story = {
                 realm: { loginWithEmailAllowed: false }
             }}
         />
-    ) // Spread the args to pass ORG_EN and other props
+    ) 
 };
 
 export const WithPresetUsername: Story = {
-    args: { legacy: true },
     render: args => (
         <KcPageStory
             {...args}
@@ -102,11 +98,10 @@ export const WithPresetUsername: Story = {
                 login: { username: "max.mustermann@mail.com" }
             }}
         />
-    ) // Spread the args to pass ORG_EN and other props
+    ) 
 };
 
 export const WithImmutablePresetUsername: Story = {
-    args: { legacy: true },
     render: args => (
         <KcPageStory
             {...args}
@@ -122,11 +117,10 @@ export const WithImmutablePresetUsername: Story = {
                 }
             }}
         />
-    ) // Spread the args to pass ORG_EN and other props
+    )
 };
 
 export const WithSocialProviders: Story = {
-    args: { legacy: true },
     render: args => (
         <KcPageStory
             {...args}
@@ -222,11 +216,10 @@ export const WithSocialProviders: Story = {
                 }
             }}
         />
-    ) // Spread the args to pass ORG_EN and other props
+    )
 };
 
 export const WithoutPasswordField: Story = {
-    args: { legacy: true },
     render: args => (
         <KcPageStory
             {...args}
@@ -234,11 +227,10 @@ export const WithoutPasswordField: Story = {
                 realm: { password: false }
             }}
         />
-    ) // Spread the args to pass ORG_EN and other props
+    )
 };
 
 export const WithErrorMessage: Story = {
-    args: { legacy: true },
     render: args => (
         <KcPageStory
             {...args}
@@ -249,5 +241,5 @@ export const WithErrorMessage: Story = {
                 }
             }}
         />
-    ) // Spread the args to pass ORG_EN and other props
+    )
 };
