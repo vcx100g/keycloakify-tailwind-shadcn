@@ -27,15 +27,18 @@ export function createKcPageStory<PageId extends KcContext["pageId"]>(params: {
 
     function KcPageStory(props: {
         kcContext?: DeepPartial<Extract<KcContext, { pageId: PageId }>>;
+        legacy?: boolean; // Add the `legacy` flag as an optional prop
     }) {
-        const { kcContext: overrides } = props;
+        const { kcContext: overrides, legacy = false } = props; // Get the legacy flag, default to false
+
+        console.log("Legacy flag in createKcPageStory:", legacy);
 
         const kcContextMock = getKcContextMock({
             pageId,
             overrides
         });
 
-        return <KcPage kcContext={kcContextMock} />;
+        return <KcPage kcContext={kcContextMock} legacy={legacy} />; // Pass `legacy` to KcPage
     }
 
     return { KcPageStory };

@@ -1,6 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { createKcPageStory } from "../KcPageStory";
 
+
+
+
 const { KcPageStory } = createKcPageStory({ pageId: "login.ftl" });
 
 const meta = {
@@ -13,12 +16,14 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-    render: () => <KcPageStory />
+    render: args => <KcPageStory {...args} />,
+    args: { legacy: false }
 };
 
 export const WithInvalidCredential: Story = {
-    render: () => (
+    render: args => (
         <KcPageStory
+            {...args}
             kcContext={{
                 login: {
                     username: "johndoe"
@@ -39,62 +44,68 @@ export const WithInvalidCredential: Story = {
                 }
             }}
         />
-    )
+    ) // Spread the args to pass ORG_EN and other props
 };
 
 export const WithoutRegistration: Story = {
-    render: () => (
+    render: args => (
         <KcPageStory
+            {...args}
             kcContext={{
                 realm: { registrationAllowed: false }
             }}
         />
-    )
+    ) // Spread the args to pass ORG_EN and other props
 };
 
 export const WithoutRememberMe: Story = {
-    render: () => (
+    render: args => (
         <KcPageStory
+            {...args}
             kcContext={{
                 realm: { rememberMe: false }
             }}
         />
-    )
+    ) // Spread the args to pass ORG_EN and other props
 };
 
 export const WithoutPasswordReset: Story = {
-    render: () => (
+    render: args => (
         <KcPageStory
+            {...args}
             kcContext={{
                 realm: { resetPasswordAllowed: false }
             }}
         />
-    )
+    ) // Spread the args to pass ORG_EN and other props
 };
 
 export const WithEmailAsUsername: Story = {
-    render: () => (
+    render: args => (
         <KcPageStory
+            {...args}
             kcContext={{
                 realm: { loginWithEmailAllowed: false }
             }}
         />
-    )
+    ) // Spread the args to pass ORG_EN and other props
 };
 
 export const WithPresetUsername: Story = {
-    render: () => (
+    render: args => (
         <KcPageStory
+            {...args}
             kcContext={{
                 login: { username: "max.mustermann@mail.com" }
             }}
         />
-    )
+    ) // Spread the args to pass ORG_EN and other props
 };
 
 export const WithImmutablePresetUsername: Story = {
-    render: () => (
+    render: args => (
         <KcPageStory
+            {...args}
             kcContext={{
                 auth: {
                     attemptedUsername: "max.mustermann@mail.com",
@@ -107,12 +118,13 @@ export const WithImmutablePresetUsername: Story = {
                 }
             }}
         />
-    )
+    ) // Spread the args to pass ORG_EN and other props
 };
 
 export const WithSocialProviders: Story = {
-    render: () => (
+    render: args => (
         <KcPageStory
+            {...args}
             kcContext={{
                 social: {
                     displayInfo: true,
@@ -205,22 +217,24 @@ export const WithSocialProviders: Story = {
                 }
             }}
         />
-    )
+    ) // Spread the args to pass ORG_EN and other props
 };
 
 export const WithoutPasswordField: Story = {
-    render: () => (
+    render: args => (
         <KcPageStory
+            {...args}
             kcContext={{
                 realm: { password: false }
             }}
         />
-    )
+    ) // Spread the args to pass ORG_EN and other props
 };
 
 export const WithErrorMessage: Story = {
-    render: () => (
+    render: args => (
         <KcPageStory
+            {...args}
             kcContext={{
                 message: {
                     summary: "The time allotted for the connection has elapsed.<br/>The login process will restart from the beginning.",
@@ -228,5 +242,5 @@ export const WithErrorMessage: Story = {
                 }
             }}
         />
-    )
+    ) // Spread the args to pass ORG_EN and other props
 };

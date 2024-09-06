@@ -4,32 +4,79 @@ import type { KcContext } from "./KcContext";
 import { useI18n } from "./i18n";
 import DefaultPage from "keycloakify/login/DefaultPage";
 import Template from "keycloakify/login/Template";
+import { Template as CustomTemplate } from "./Template";
 import "./../styles/global.css";
+import Login from "./pages/Login";
+
 const UserProfileFormFields = lazy(
     () => import("keycloakify/login/UserProfileFormFields")
 );
 
+// Base component to render DefaultPage
+const Base = ({
+    kcContext,
+    i18n,
+    classes
+}: {
+    kcContext: KcContext;
+    i18n: any;
+    classes: any;
+}) => {
+    return (
+        <DefaultPage
+            kcContext={kcContext}
+            i18n={i18n}
+            classes={classes}
+            Template={CustomTemplate}
+            doUseDefaultCss={true}
+            UserProfileFormFields={UserProfileFormFields}
+            doMakeUserConfirmPassword={doMakeUserConfirmPassword}
+        />
+    );
+};
+
 const doMakeUserConfirmPassword = true;
 
-export default function KcPage(props: { kcContext: KcContext }) {
-    const { kcContext } = props;
-
+export default function KcPage(props: { kcContext: KcContext; legacy?: boolean }) {
+    const { kcContext, legacy } = props; // Get the `legacy` flag as a prop
     const { i18n } = useI18n({ kcContext });
+
+    console.log("Legacy flag in KcPage:", legacy);
 
     return (
         <Suspense>
             {(() => {
                 switch (kcContext.pageId) {
+                    case "login.ftl":
+                        return (
+                            <div>
+                                {/* Render Base if `legacy` is true */}
+                                {legacy && (
+                                    <Base
+                                        kcContext={kcContext}
+                                        i18n={i18n}
+                                        classes={classesDefault}
+                                    />
+                                )}
+                                {/* Render Login if `legacy` is false */}
+                                {!legacy && (
+                                    <Login
+                                        kcContext={kcContext}
+                                        i18n={i18n}
+                                        classes={classescustom}
+                                        Template={CustomTemplate}
+                                        doUseDefaultCss={true}
+                                    />
+                                )}
+                            </div>
+                        );
+
                     default:
                         return (
-                            <DefaultPage
+                            <Base
                                 kcContext={kcContext}
                                 i18n={i18n}
-                                classes={classes}
-                                Template={Template}
-                                doUseDefaultCss={true}
-                                UserProfileFormFields={UserProfileFormFields}
-                                doMakeUserConfirmPassword={doMakeUserConfirmPassword}
+                                classes={classesDefault}
                             />
                         );
                 }
@@ -38,8 +85,9 @@ export default function KcPage(props: { kcContext: KcContext }) {
     );
 }
 
-const classes = {
+const classescustom = {
     kcHtmlClass: "bg-background",
-    // kcBodyClass: "bg-slate-900",
     kcLoginClass: "bg-background h-screen"
 } satisfies { [key in ClassKey]?: string };
+
+const classesDefault = {} satisfies { [key in ClassKey]?: string };
