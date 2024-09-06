@@ -1,11 +1,12 @@
 // src/components/Button.stories.tsx
 import { Meta, StoryObj } from "@storybook/react";
-import { Button, ButtonProps } from "./button";
+import { Button, ButtonProps } from "../ui/button";
 
 // Define metadata for Storybook
 const meta: Meta<ButtonProps> = {
     title: "Components/Button", // Title to organize your components
     component: Button,
+    tags: ["autodocs"],
     argTypes: {
         variant: {
             control: "select",

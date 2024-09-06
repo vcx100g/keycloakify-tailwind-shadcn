@@ -5,8 +5,10 @@ import type { PageProps } from "keycloakify/login/pages/PageProps";
 import { getKcClsx, type KcClsx } from "keycloakify/login/lib/kcClsx";
 import type { KcContext } from "../KcContext";
 import type { I18n } from "../i18n";
-import { Button } from "../../components/button";
-
+import { Button } from "../../components/ui/button";
+import { Input } from "../../components/ui/input";
+import { Label } from "../../components/ui/label";
+import { Checkbox } from "../../components/ui/checkbox";
 export default function Login(props: PageProps<Extract<KcContext, { pageId: "login.ftl" }>, I18n>) {
     const { kcContext, i18n, doUseDefaultCss, Template, classes } = props;
 
@@ -31,15 +33,13 @@ export default function Login(props: PageProps<Extract<KcContext, { pageId: "log
             headerNode={msg("loginAccountTitle")}
             displayInfo={realm.password && realm.registrationAllowed && !registrationDisabled}
             infoNode={
-                <div id="kc-registration-container">
-                    <div id="kc-registration">
-                        <span>
-                            {msg("noAccount")}{" "}
-                            <a tabIndex={8} href={url.registrationUrl}>
-                                {msg("doRegister")}
-                            </a>
-                        </span>
-                    </div>
+                <div id="kc-registration" className="">
+                    <span className="text-foreground text-xl">
+                        {msgStr("noAccount")}{" "}
+                        <a tabIndex={8} href={url.registrationUrl}>
+                            {msgStr("doRegister")}
+                        </a>
+                    </span>
                 </div>
             }
             socialProvidersNode={
@@ -85,20 +85,21 @@ export default function Login(props: PageProps<Extract<KcContext, { pageId: "log
                             }}
                             action={url.loginAction}
                             method="post"
+                            className="space-y-6"
                         >
                             {!usernameHidden && (
-                                <div className={kcClsx("kcFormGroupClass")}>
-                                    <label htmlFor="username" className={kcClsx("kcLabelClass")}>
+                                <div>
+                                    <Label htmlFor="username" className="text-lg">
                                         {!realm.loginWithEmailAllowed
                                             ? msg("username")
                                             : !realm.registrationEmailAsUsername
                                               ? msg("usernameOrEmail")
                                               : msg("email")}
-                                    </label>
-                                    <input
+                                    </Label>
+                                    <Input
                                         tabIndex={2}
                                         id="username"
-                                        className={kcClsx("kcInputClass")}
+                                        className=""
                                         name="username"
                                         defaultValue={login.username ?? ""}
                                         type="text"
@@ -119,15 +120,15 @@ export default function Login(props: PageProps<Extract<KcContext, { pageId: "log
                                 </div>
                             )}
 
-                            <div className={kcClsx("kcFormGroupClass")}>
-                                <label htmlFor="password" className={kcClsx("kcLabelClass")}>
+                            <div>
+                                <Label htmlFor="password" className="text-lg">
                                     {msg("password")}
-                                </label>
+                                </Label>
                                 <PasswordWrapper kcClsx={kcClsx} i18n={i18n} passwordInputId="password">
-                                    <input
+                                    <Input
                                         tabIndex={3}
                                         id="password"
-                                        className={kcClsx("kcInputClass")}
+                                        className="text-foreground"
                                         name="password"
                                         type="password"
                                         autoComplete="current-password"
@@ -146,24 +147,25 @@ export default function Login(props: PageProps<Extract<KcContext, { pageId: "log
                                 )}
                             </div>
 
-                            <div className={kcClsx("kcFormGroupClass", "kcFormSettingClass")}>
-                                <div id="kc-form-options">
+                            <div className="flex flex-row items-center justify-between text-lg ">
+                                <div>
                                     {realm.rememberMe && !usernameHidden && (
-                                        <div className="checkbox">
-                                            <label>
+                                        <div className="checkbox ">
+                                            <div className="flex items-center ml-6">
                                                 <input
                                                     tabIndex={5}
-                                                    id="rememberMe"
+                                                    // id="rememberMe"
                                                     name="rememberMe"
                                                     type="checkbox"
+                                                    className="text-lg "
                                                     defaultChecked={!!login.rememberMe}
                                                 />{" "}
                                                 {msg("rememberMe")}
-                                            </label>
+                                            </div>
                                         </div>
                                     )}
                                 </div>
-                                <div className={kcClsx("kcFormOptionsWrapperClass")}>
+                                <div className="text-lg">
                                     {realm.resetPasswordAllowed && (
                                         <span>
                                             <a tabIndex={6} href={url.loginResetCredentialsUrl}>
@@ -175,7 +177,7 @@ export default function Login(props: PageProps<Extract<KcContext, { pageId: "log
                             </div>
 
                             <div id="kc-form-buttons" className={kcClsx("kcFormGroupClass")}>
-                                <input type="hidden" id="id-hidden-input" name="credentialId" value={auth.selectedCredential} />
+                                <Input type="hidden" id="id-hidden-input" name="credentialId" value={auth.selectedCredential} />
 
                                 <Button tabIndex={7} disabled={isLoginButtonDisabled} type="submit" className="w-full">
                                     {msgStr("doLogIn")}
@@ -205,17 +207,16 @@ function PasswordWrapper(props: { kcClsx: KcClsx; i18n: I18n; passwordInputId: s
     }, [isPasswordRevealed]);
 
     return (
-        <div className={kcClsx("kcInputGroup")}>
+        <div className="flex space-x-2">
             {children}
-            <button
+            <Button
                 type="button"
-                className={kcClsx("kcFormPasswordVisibilityButtonClass")}
                 aria-label={msgStr(isPasswordRevealed ? "hidePassword" : "showPassword")}
                 aria-controls={passwordInputId}
                 onClick={toggleIsPasswordRevealed}
             >
                 <i className={kcClsx(isPasswordRevealed ? "kcFormPasswordVisibilityIconHide" : "kcFormPasswordVisibilityIconShow")} aria-hidden />
-            </button>
+            </Button>
         </div>
     );
 }

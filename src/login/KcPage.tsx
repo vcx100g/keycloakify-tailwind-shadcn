@@ -87,8 +87,7 @@ export default function KcPage(props: KcPageArgs) {
 }
 
 const classescustom = {
-    kcHtmlClass: "bg-background",
-    kcLoginClass: "bg-background h-screen"
+    kcHtmlClass: "bg-background"
 } satisfies { [key in ClassKey]?: string };
 
 const classesDefault = {} satisfies { [key in ClassKey]?: string };
