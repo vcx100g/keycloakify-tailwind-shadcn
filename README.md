@@ -1,55 +1,82 @@
-<p align="center">
-    <i>🚀 <a href="https://keycloakify.dev">Keycloakify</a> v10 starter 🚀</i>
-    <br/>
-    <br/>
-</p>
+# 🚀 Keycloakify + Tailwind CSS & ShadCN UI: Enhancing Keycloak Themes 🚀
+Welcome to the Keycloakify + Tailwind CSS & ShadCN UI repository! This project is a community-driven effort aimed at making Keycloak theming more accessible, modern, and easy to customize. By integrating Tailwind CSS and ShadCN UI, I am upgrading the Keycloakify ecosystem, one page at a time, to meet the needs of modern front-end development.
 
-This starter is based on Webpack. There is also [a Vite based starter](https://github.com/keycloakify/keycloakify-starter).
+This project is designed to be developer-friendly, making it easy to customize themes or individual components to suit your specific needs. With the help of Storybook, developers can modify components in isolation, streamlining the customization process.
 
-# Quick start
+I strongly believe in the Keycloak ecosystem and found Keycloakify to be an extremely stable and reliable tool for creating custom Keycloak themes. My goal is to further enhance Keycloakify for this specific front-end use case and to make it easier for others to build on top of my work.
 
+## 💡 Why This Project?
+This project is designed to help the Keycloak developer community by providing a ready-to-use template that integrates Tailwind CSS and ShadCN UI components. Developers can now easily build on this foundation, customizing either the entire theme or individual components in isolation using Storybook. With these tools, creating modern, responsive Keycloak UIs is easier than ever.
+
+Contributions are highly encouraged! Whether you're passionate about Keycloak, Tailwind CSS, or ShadCN, let's collaborate to make Keycloak theming easier and more powerful for everyone.
+
+## 🚀 Quick Start
+Clone this repository:
 ```bash
-git clone https://github.com/keycloakify/keycloakify-starter-webpack
-cd keycloakify-starter-webpack
-yarn install # Or use pnpm or bun (but not npm), just be sure to delete the yarn.lock if you do.
+git clone https://github.com/nima70/keycloakify-tailwind-shadcn.git
 ```
+Install dependencies:
+```bash
+yarn install  # Or use pnpm or bun, just delete yarn.lock if switching.
+```
+Run the project locally:
+```bash
+npm start
+```
+## 🛠 Tailwind CSS & ShadCN UI Integration
+This project integrates Tailwind CSS and ShadCN UI components with Keycloakify, making it easier to create custom Keycloak themes. You can easily customize individual components or the entire theme by leveraging Storybook.
 
-# Testing the theme locally
+Isolated Component Customization with Storybook: Every component in this project is storybook-ready, allowing you to develop and customize components in isolation. This means you can focus on fine-tuning each UI element without worrying about the rest of the application. Storybook helps in visually testing and experimenting with different styles and themes.
+With the integration of Tailwind CSS, you get access to utility-first CSS for rapid styling, while ShadCN UI components provide a robust design system for professional UIs.
 
-[Documentation](https://docs.keycloakify.dev/v/v10/testing-your-theme)
+#### Pages Currently Enhanced:
+- Login Page
 
-# How to customize the theme
+Stay tuned as more pages are upgraded with Tailwind CSS and ShadCN UI components!
 
-[Documentation](https://docs.keycloakify.dev/v/v10/customization-strategies)
+## 📦 Building the Keycloak Theme
+You need Maven installed to build the Keycloak theme.
 
-# Building the theme
+#### Install Maven:
 
-You need to have Maven installed to build the theme (The `mvn` command must be in the PATH).
-
--   On macOS: `brew install maven`
--   On Debian/Ubuntu: `sudo apt-get install maven`
--   On Windows: `choco install openjdk` and `choco install maven` (Or download from [here](https://maven.apache.org/download.cgi))
-
+macOS:
+```bash
+brew install maven
+```
+Debian/Ubuntu:
+```bash
+sudo apt-get install maven
+```
+Windows:
+```bash
+choco install openjdk && choco install maven
+```
+Build the Keycloak theme:
 ```bash
 npm run build-keycloak-theme
 ```
+Keycloakify generates .jar files for different Keycloak versions by default. You can customize this to suit your deployment needs. Learn more in the Keycloakify documentation.
 
-Note that by default Keycloakify generates multiple .jar files for different versions of Keycloak.  
-You can customize this behavior, see documentation [here](https://docs.keycloakify.dev/targeting-specific-keycloak-versions).
+## 🤝 How You Can Contribute
+I am eager to collaborate with others who are passionate about Keycloak, Tailwind CSS, or ShadCN UI. Here’s how you can get involved:
 
-# GitHub Actions
+- Fork this repository, and submit pull requests to contribute new features or improvements.
+- Test and customize individual components using Storybook and contribute improvements to them.
+- Open issues to discuss ideas for future enhancements or provide feedback.
+Spread the word by starring this repository and sharing it with the community.
+Together, we can create a modern, highly customizable Keycloak UI for everyone!
 
-The starter comes with a generic GitHub Actions workflow that builds the theme and publishes
-the jars [as GitHub releases artifacts](https://github.com/keycloakify/keycloakify-starter-webpack/releases/tag/v10.0.0).  
-To release a new version **just update the `package.json` version and push**.
+## 🎯 Keywords & Tags
+- Keycloak custom themes
+- Tailwind CSS for Keycloak
+- ShadCN UI integration
+- Keycloakify customization
+- Modern Keycloak theming
+- Storybook for Keycloak components
+- Open-source Keycloak themes
+- Responsive Keycloak themes
+## 📄 License
+This project is licensed under the MIT License.
 
-To enable the workflow go to your fork of this repository on GitHub then navigate to:
-`Settings` > `Actions` > `Workflow permissions`, select `Read and write permissions`.
-
-# Ejecting from Create React App
-
-This setup is based on Create React App however you can eject it into a custom Webpack setup with:
-
-```bash
-npx react-scripts eject
-```
+## Contact
+Have questions or want to collaborate? Feel free to open an issue or reach out via email.
