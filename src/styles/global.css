@@ -60,3 +60,15 @@
     }
   }
   
+  @layer components {
+    .link-style {
+      @apply underline underline-offset-4 font-semibold text-lg;
+    }
+  }
+  @layer components {
+    .input-error {
+      @apply text-lg mt-2 text-red-500 font-bold py-0.5 px-1 ;
+    }
+  }
+
+  

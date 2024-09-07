@@ -117,7 +117,55 @@ export const WithImmutablePresetUsername: Story = {
         />
     )
 };
-
+export const WithOneSocialProvider: Story = {
+    render: args => (
+        <KcPageStory
+            {...args}
+            kcContext={{
+                social: {
+                    displayInfo: true,
+                    providers: [
+                        {
+                            loginUrl: "google",
+                            alias: "google",
+                            providerId: "google",
+                            displayName: "Google",
+                            iconClasses: "fa fa-google"
+                        }
+                    ]
+                }
+            }}
+        />
+    )
+};
+export const WithTwoSocialProviders: Story = {
+    render: args => (
+        <KcPageStory
+            {...args}
+            kcContext={{
+                social: {
+                    displayInfo: true,
+                    providers: [
+                        {
+                            loginUrl: "google",
+                            alias: "google",
+                            providerId: "google",
+                            displayName: "Google",
+                            iconClasses: "fa fa-google"
+                        },
+                        {
+                            loginUrl: "microsoft",
+                            alias: "microsoft",
+                            providerId: "microsoft",
+                            displayName: "Microsoft",
+                            iconClasses: "fa fa-windows"
+                        }
+                    ]
+                }
+            }}
+        />
+    )
+};
 export const WithSocialProviders: Story = {
     render: args => (
         <KcPageStory

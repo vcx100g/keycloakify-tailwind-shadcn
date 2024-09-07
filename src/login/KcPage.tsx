@@ -35,33 +35,17 @@ const Base = ({
     );
 };
 
-export interface KcPageArgs {
-    kcContext: KcContext;
-    legacy?: boolean;
-}
-
 const doMakeUserConfirmPassword = true;
 
-export default function KcPage(props: KcPageArgs) {
-    const { kcContext, legacy } = props; // Get the `legacy` flag as a prop
+export default function KcPage(props: KcContext) {
+    const kcContext = props; // Get the `legacy` flag as a prop
     const { i18n } = useI18n({ kcContext });
-
-    console.log("Legacy flag in KcPage:", legacy);
 
     return (
         <Suspense>
             {(() => {
                 switch (kcContext.pageId) {
                     case "login.ftl":
-                        if (legacy) {
-                            return (
-                                <Base
-                                    kcContext={kcContext}
-                                    i18n={i18n}
-                                    classes={classesDefault}
-                                />
-                            );
-                        }
                         return (
                             <Login
                                 kcContext={kcContext}

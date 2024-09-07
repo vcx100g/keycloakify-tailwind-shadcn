@@ -8,7 +8,8 @@ import type { I18n } from "../i18n";
 import { Button } from "../../components/ui/button";
 import { Input } from "../../components/ui/input";
 import { Label } from "../../components/ui/label";
-import { Checkbox } from "../../components/ui/checkbox";
+
+import { Separator } from "../../components/ui/separator";
 export default function Login(props: PageProps<Extract<KcContext, { pageId: "login.ftl" }>, I18n>) {
     const { kcContext, i18n, doUseDefaultCss, Template, classes } = props;
 
@@ -36,7 +37,7 @@ export default function Login(props: PageProps<Extract<KcContext, { pageId: "log
                 <div id="kc-registration" className="">
                     <span className="text-foreground text-xl">
                         {msgStr("noAccount")}{" "}
-                        <a tabIndex={8} href={url.registrationUrl}>
+                        <a tabIndex={8} href={url.registrationUrl} className="mx-5 link-style ">
                             {msgStr("doRegister")}
                         </a>
                     </span>
@@ -45,30 +46,31 @@ export default function Login(props: PageProps<Extract<KcContext, { pageId: "log
             socialProvidersNode={
                 <>
                     {realm.password && social.providers !== undefined && social.providers.length !== 0 && (
-                        <div id="kc-social-providers" className={kcClsx("kcFormSocialAccountSectionClass")}>
-                            <hr />
-                            <h2>{msg("identity-provider-login-label")}</h2>
-                            <ul className={kcClsx("kcFormSocialAccountListClass", social.providers.length > 3 && "kcFormSocialAccountListGridClass")}>
+                        <div id="kc-social-providers" className="mt-5 space-y-7">
+                            <h2 className="text-center text-lg mt-7">{msg("identity-provider-login-label")}</h2>
+                            <div
+                                className={clsx(
+                                    "text-lg grid gap-2", // Apply a grid and gap between items
+                                    social.providers.length > 1 ? "grid-cols-2" : "grid-cols-1" // Conditional grid columns
+                                )}
+                            >
                                 {social.providers.map((...[p, , providers]) => (
-                                    <li key={p.alias}>
+                                    <div
+                                        key={p.alias}
+                                        className=" items-center bg-accent  w-full py-1 my-1.5 border rounded-lg px-3 hover:bg-primary hover:text-primary-foreground"
+                                    >
                                         <a
                                             id={`social-${p.alias}`}
-                                            className={kcClsx(
-                                                "kcFormSocialAccountListButtonClass",
-                                                providers.length > 3 && "kcFormSocialAccountGridItem"
-                                            )}
+                                            className="flex flex-row items-center justify-center  w-full py-2 "
                                             type="button"
                                             href={p.loginUrl}
                                         >
-                                            {p.iconClasses && <i className={clsx(kcClsx("kcCommonLogoIdP"), p.iconClasses)} aria-hidden="true"></i>}
-                                            <span
-                                                className={clsx(kcClsx("kcFormSocialAccountNameClass"), p.iconClasses && "kc-social-icon-text")}
-                                                dangerouslySetInnerHTML={{ __html: p.displayName }}
-                                            ></span>
+                                            {p.iconClasses && <i className={clsx(p.iconClasses)} aria-hidden="true"></i>}
+                                            <span className="mx-3" dangerouslySetInnerHTML={{ __html: p.displayName }}></span>
                                         </a>
-                                    </li>
+                                    </div>
                                 ))}
-                            </ul>
+                            </div>
                         </div>
                     )}
                 </>
@@ -108,9 +110,9 @@ export default function Login(props: PageProps<Extract<KcContext, { pageId: "log
                                         aria-invalid={messagesPerField.existsError("username", "password")}
                                     />
                                     {messagesPerField.existsError("username", "password") && (
-                                        <span
-                                            id="input-error"
-                                            className={kcClsx("kcInputErrorMessageClass")}
+                                        <div
+                                            // id="input-error"
+                                            className="input-error py-3"
                                             aria-live="polite"
                                             dangerouslySetInnerHTML={{
                                                 __html: messagesPerField.getFirstError("username", "password")
@@ -150,26 +152,26 @@ export default function Login(props: PageProps<Extract<KcContext, { pageId: "log
                             <div className="flex flex-row items-center justify-between text-lg ">
                                 <div>
                                     {realm.rememberMe && !usernameHidden && (
-                                        <div className="checkbox ">
-                                            <div className="flex items-center ml-6">
+                                        <div>
+                                            <div className="flex items-center   space-x-2 ">
                                                 <input
                                                     tabIndex={5}
                                                     // id="rememberMe"
+                                                    className="w-4 h-4"
                                                     name="rememberMe"
                                                     type="checkbox"
-                                                    className="text-lg "
                                                     defaultChecked={!!login.rememberMe}
-                                                />{" "}
-                                                {msg("rememberMe")}
+                                                />
+                                                <span>{msgStr("rememberMe")}</span>
                                             </div>
                                         </div>
                                     )}
                                 </div>
-                                <div className="text-lg">
+                                <div className=" link-style">
                                     {realm.resetPasswordAllowed && (
                                         <span>
                                             <a tabIndex={6} href={url.loginResetCredentialsUrl}>
-                                                {msg("doForgotPassword")}
+                                                {msgStr("doForgotPassword")}
                                             </a>
                                         </span>
                                     )}
@@ -179,10 +181,11 @@ export default function Login(props: PageProps<Extract<KcContext, { pageId: "log
                             <div id="kc-form-buttons" className={kcClsx("kcFormGroupClass")}>
                                 <Input type="hidden" id="id-hidden-input" name="credentialId" value={auth.selectedCredential} />
 
-                                <Button tabIndex={7} disabled={isLoginButtonDisabled} type="submit" className="w-full">
+                                <Button tabIndex={7} disabled={isLoginButtonDisabled} type="submit" className="w-full ">
                                     {msgStr("doLogIn")}
                                 </Button>
                             </div>
+                            <Separator />
                         </form>
                     )}
                 </div>

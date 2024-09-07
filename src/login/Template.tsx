@@ -11,6 +11,7 @@ import type { KcContext } from "./KcContext";
 import { Button } from "../components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "../components/ui/card";
 import "../styles/global.css";
+import { GlobeAltIcon } from "@heroicons/react/24/outline";
 import {
     DropdownMenu,
     DropdownMenuTrigger,
@@ -130,15 +131,58 @@ export function Template(props: TemplateProps<KcContext, I18n>) {
     if (!areAllStyleSheetsLoaded) {
         return null;
     }
-
+    const languageSelector = () => {
+        return (
+            <div>
+                {realm.internationalizationEnabled && (assert(locale !== undefined), locale.supported.length > 1) && (
+                    <div className="mt-0.5 -mr-3" id="kc-locale">
+                        <div id="kc-locale-wrapper" className="">
+                            <div>
+                                <DropdownMenu>
+                                    <DropdownMenuTrigger asChild>
+                                        <Button
+                                            tabIndex={1}
+                                            variant="secondary"
+                                            size="sm"
+                                            aria-label={msgStr("languages")}
+                                            aria-haspopup="true"
+                                            aria-expanded="false"
+                                            aria-controls="language-switch1"
+                                            className="px-3 py-0"
+                                        >
+                                            <div className="flex space-x-2">
+                                                <GlobeAltIcon className="h-5 w-5" />
+                                                <span>{labelBySupportedLanguageTag[currentLanguageTag]}</span>
+                                            </div>
+                                        </Button>
+                                    </DropdownMenuTrigger>
+                                    <DropdownMenuContent id="language-switch1" role="menu">
+                                        {locale.supported.map(({ languageTag }, i) => (
+                                            <DropdownMenuItem key={languageTag} role="none">
+                                                <a role="menuitem" id={`language-${i + 1}`} href={getChangeLocaleUrl(languageTag)}>
+                                                    {labelBySupportedLanguageTag[languageTag]}
+                                                </a>
+                                            </DropdownMenuItem>
+                                        ))}
+                                    </DropdownMenuContent>
+                                </DropdownMenu>
+                            </div>
+                        </div>
+                    </div>
+                )}
+            </div>
+        );
+    };
     return (
-        <div className="bg-background h-screen flex flex-col items-center justify-center dark  ">
+        <div className="bg-background min-h-screen flex flex-col items-center justify-center   ">
             <div id="kc-header-wrapper" className="text-center text-foreground">
                 {msgStr("loginTitleHtml", realm.displayNameHtml)}
             </div>
-            <Card className="py-5 px-3 w-[30rem] md:-[40rem]">
-                <CardTitle>
-                    <header className="text-center">
+            <Card className="py-0 px-3 w-[30rem] md:-[40rem] shadow-2xl">
+                {languageSelector()}
+                <CardTitle className="py-0 my-0 bg-slate-500"></CardTitle>
+                <CardContent className="space-y-8 py-5">
+                    <header className="text-center text-3xl ">
                         {(() => {
                             const node = !(auth !== undefined && auth.showUsername && !auth.showResetCredentials) ? (
                                 <h1 id="kc-page-title">{headerNode}</h1>
@@ -171,75 +215,6 @@ export function Template(props: TemplateProps<KcContext, I18n>) {
                             return node;
                         })()}
                     </header>
-                </CardTitle>
-                <CardContent className="space-y-8 py-5">
-                    {realm.internationalizationEnabled && (assert(locale !== undefined), locale.supported.length > 1) && (
-                        <div className="" id="kc-locale">
-                            {/* <DropdownMenu>
-                                <DropdownMenuTrigger asChild>
-                                    <Button
-                                        tabIndex={1}
-                                        id="kc-current-locale-link"
-                                        aria-label={msgStr("languages")}
-                                        aria-haspopup="true"
-                                        aria-expanded="false"
-                                        aria-controls="language-switch1"
-                                    >
-                                        {labelBySupportedLanguageTag[currentLanguageTag]}
-                                    </Button>
-                                </DropdownMenuTrigger>
-                                <DropdownMenuContent>
-                                    {locale.supported.map(({ languageTag }, i) => (
-                                        <DropdownMenuItem key={languageTag} className={kcClsx("kcLocaleListItemClass")} role="none">
-                                            <a
-                                                role="menuitem"
-                                                id={`language-${i + 1}`}
-                                                className={kcClsx("kcLocaleItemClass")}
-                                                href={getChangeLocaleUrl(languageTag)}
-                                            >
-                                                {labelBySupportedLanguageTag[languageTag]}
-                                            </a>
-                                        </DropdownMenuItem>
-                                    ))}
-                                </DropdownMenuContent>
-                            </DropdownMenu> */}
-                            <div id="kc-locale-wrapper" className="">
-                                <div id="kc-locale-dropdown" className={clsx("menu-button-links", kcClsx("kcLocaleDropDownClass"))}>
-                                    <Button
-                                        tabIndex={1}
-                                        id="kc-current-locale-link"
-                                        aria-label={msgStr("languages")}
-                                        aria-haspopup="true"
-                                        aria-expanded="false"
-                                        aria-controls="language-switch1"
-                                    >
-                                        {labelBySupportedLanguageTag[currentLanguageTag]}
-                                    </Button>
-                                    <ul
-                                        role="menu"
-                                        tabIndex={-1}
-                                        aria-labelledby="kc-current-locale-link"
-                                        aria-activedescendant=""
-                                        id="language-switch1"
-                                        className={kcClsx("kcLocaleListClass")}
-                                    >
-                                        {locale.supported.map(({ languageTag }, i) => (
-                                            <li key={languageTag} className={kcClsx("kcLocaleListItemClass")} role="none">
-                                                <a
-                                                    role="menuitem"
-                                                    id={`language-${i + 1}`}
-                                                    className={kcClsx("kcLocaleItemClass")}
-                                                    href={getChangeLocaleUrl(languageTag)}
-                                                >
-                                                    {labelBySupportedLanguageTag[languageTag]}
-                                                </a>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    )}
                     <div id="kc-content" className="">
                         <div id="kc-content-wrapper">
                             {/* App-initiated actions should not see warning messages about the need to complete the action during login. */}
@@ -258,7 +233,7 @@ export function Template(props: TemplateProps<KcContext, I18n>) {
                                         {message.type === "info" && <span className={kcClsx("kcFeedbackInfoIcon")}></span>}
                                     </div>
                                     <span
-                                        className={kcClsx("kcAlertTitleClass")}
+                                        className="text-sm"
                                         dangerouslySetInnerHTML={{
                                             __html: message.summary
                                         }}
