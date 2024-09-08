@@ -31,6 +31,7 @@ With the integration of Tailwind CSS, you get access to utility-first CSS for ra
 
 #### Pages Currently Enhanced:
 - Login Page
+- Terms Page
 
 Stay tuned as more pages are upgraded with Tailwind CSS and ShadCN UI components!
 

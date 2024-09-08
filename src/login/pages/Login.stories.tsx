@@ -5,8 +5,7 @@ const { KcPageStory } = createKcPageStory({ pageId: "login.ftl" });
 
 const meta = {
     title: "login/login.ftl/new",
-    component: KcPageStory,
-    args: { legacy: false }
+    component: KcPageStory
 } satisfies Meta<typeof KcPageStory>;
 
 export default meta;

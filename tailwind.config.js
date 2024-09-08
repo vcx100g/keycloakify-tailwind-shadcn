@@ -3,6 +3,7 @@ const { fontFamily } = require("tailwindcss/defaultTheme");
 
 module.exports = {
     darkMode: "class",
+    // purge: ["./src/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
     content: [
         "./src/**/*.tsx",
         "./src/**/*.ts",
@@ -78,5 +79,5 @@ module.exports = {
             }
         }
     },
-    plugins: [require("tailwindcss-animate")]
+    plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")]
 };
