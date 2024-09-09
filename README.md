@@ -48,6 +48,9 @@ With the integration of Tailwind CSS, you get access to utility-first CSS for ra
 -   Code
 -   Delete Account Confirm
 -   Delete Credential
+-   Frontchannel Logout
+-   Idp Review UserProfile
+-   info
 
 Stay tuned as more pages are upgraded with Tailwind CSS and ShadCN UI components!
 

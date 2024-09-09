@@ -5,6 +5,7 @@ import { useI18n } from "./i18n";
 import DefaultPage from "keycloakify/login/DefaultPage";
 import { Template as CustomTemplate } from "./Template";
 import "./../styles/global.css";
+import Info from "./pages/Info";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Terms from "./pages/Terms";
@@ -12,6 +13,8 @@ import Error from "./pages/Error";
 import Code from "./pages/Code";
 import DeleteAccountConfirm from "./pages/DeleteAccountConfirm";
 import DeleteCredential from "./pages/DeleteCredential";
+import FrontchannelLogout from "./pages/FrontchannelLogout";
+import IdpReviewUserProfile from "./pages/IdpReviewUserProfile";
 const UserProfileFormFields = lazy(() => import("./UserProfileFormFields"));
 
 // Base component to render DefaultPage
@@ -47,6 +50,38 @@ export default function KcPage(props: { kcContext: KcContext }) {
         <Suspense>
             {(() => {
                 switch (kcContext.pageId) {
+                    case "info.ftl":
+                        return (
+                            <Info
+                                kcContext={kcContext}
+                                i18n={i18n}
+                                classes={classescustom}
+                                Template={CustomTemplate}
+                                doUseDefaultCss={true}
+                            />
+                        );
+                    case "idp-review-user-profile.ftl":
+                        return (
+                            <IdpReviewUserProfile
+                                kcContext={kcContext}
+                                i18n={i18n}
+                                classes={classescustom}
+                                Template={CustomTemplate}
+                                doUseDefaultCss={true}
+                                UserProfileFormFields={UserProfileFormFields} // Pass the required UserProfileFormFields prop
+                                doMakeUserConfirmPassword={true} // or false, depending on your requirement
+                            />
+                        );
+                    case "frontchannel-logout.ftl":
+                        return (
+                            <FrontchannelLogout
+                                kcContext={kcContext}
+                                i18n={i18n}
+                                classes={classescustom}
+                                Template={CustomTemplate}
+                                doUseDefaultCss={true}
+                            />
+                        );
                     case "delete-credential.ftl":
                         return (
                             <DeleteCredential
