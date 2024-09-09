@@ -8,6 +8,7 @@ import "./../styles/global.css";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Terms from "./pages/Terms";
+import Error from "./pages/Error";
 const UserProfileFormFields = lazy(() => import("./UserProfileFormFields"));
 
 // Base component to render DefaultPage
@@ -43,6 +44,16 @@ export default function KcPage(props: { kcContext: KcContext }) {
         <Suspense>
             {(() => {
                 switch (kcContext.pageId) {
+                    case "error.ftl":
+                        return (
+                            <Error
+                                kcContext={kcContext}
+                                i18n={i18n}
+                                classes={classescustom}
+                                Template={CustomTemplate}
+                                doUseDefaultCss={true}
+                            />
+                        );
                     case "terms.ftl":
                         return (
                             <Terms
