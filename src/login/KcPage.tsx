@@ -11,6 +11,7 @@ import Terms from "./pages/Terms";
 import Error from "./pages/Error";
 import Code from "./pages/Code";
 import DeleteAccountConfirm from "./pages/DeleteAccountConfirm";
+import DeleteCredential from "./pages/DeleteCredential";
 const UserProfileFormFields = lazy(() => import("./UserProfileFormFields"));
 
 // Base component to render DefaultPage
@@ -46,6 +47,16 @@ export default function KcPage(props: { kcContext: KcContext }) {
         <Suspense>
             {(() => {
                 switch (kcContext.pageId) {
+                    case "delete-credential.ftl":
+                        return (
+                            <DeleteCredential
+                                kcContext={kcContext}
+                                i18n={i18n}
+                                classes={classescustom}
+                                Template={CustomTemplate}
+                                doUseDefaultCss={true}
+                            />
+                        );
                     case "delete-account-confirm.ftl":
                         return (
                             <DeleteAccountConfirm
