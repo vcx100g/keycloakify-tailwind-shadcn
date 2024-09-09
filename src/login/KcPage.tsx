@@ -43,38 +43,38 @@ export default function KcPage(props: { kcContext: KcContext }) {
         <Suspense>
             {(() => {
                 switch (kcContext.pageId) {
-                    // case "terms.ftl":
-                    //     return (
-                    //         <Terms
-                    //             kcContext={kcContext}
-                    //             i18n={i18n}
-                    //             classes={classescustom}
-                    //             Template={CustomTemplate}
-                    //             doUseDefaultCss={true}
-                    //         />
-                    //     );
-                    // case "register.ftl":
-                    //     return (
-                    //         <Register
-                    //             kcContext={kcContext}
-                    //             i18n={i18n}
-                    //             classes={classescustom}
-                    //             Template={CustomTemplate}
-                    //             doUseDefaultCss={true}
-                    //             UserProfileFormFields={UserProfileFormFields} // Pass the required UserProfileFormFields prop
-                    //             doMakeUserConfirmPassword={true} // or false, depending on your requirement
-                    //         />
-                    //     );
-                    // case "login.ftl":
-                    //     return (
-                    //         <Login
-                    //             kcContext={kcContext}
-                    //             i18n={i18n}
-                    //             classes={classescustom}
-                    //             Template={CustomTemplate}
-                    //             doUseDefaultCss={true}
-                    //         />
-                    //     );
+                    case "terms.ftl":
+                        return (
+                            <Terms
+                                kcContext={kcContext}
+                                i18n={i18n}
+                                classes={classescustom}
+                                Template={CustomTemplate}
+                                doUseDefaultCss={true}
+                            />
+                        );
+                    case "register.ftl":
+                        return (
+                            <Register
+                                kcContext={kcContext}
+                                i18n={i18n}
+                                classes={classescustom}
+                                Template={CustomTemplate}
+                                doUseDefaultCss={true}
+                                UserProfileFormFields={UserProfileFormFields} // Pass the required UserProfileFormFields prop
+                                doMakeUserConfirmPassword={true} // or false, depending on your requirement
+                            />
+                        );
+                    case "login.ftl":
+                        return (
+                            <Login
+                                kcContext={kcContext}
+                                i18n={i18n}
+                                classes={classescustom}
+                                Template={CustomTemplate}
+                                doUseDefaultCss={true}
+                            />
+                        );
 
                     default:
                         return (
