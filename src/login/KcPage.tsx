@@ -8,7 +8,6 @@ import "./../styles/global.css";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Terms from "./pages/Terms";
-import UserProfileFormFieldsMock from "./UserProfileFormFields";
 const UserProfileFormFields = lazy(() => import("./UserProfileFormFields"));
 
 // Base component to render DefaultPage
@@ -44,38 +43,38 @@ export default function KcPage(props: KcContext) {
         <Suspense>
             {(() => {
                 switch (kcContext.pageId) {
-                    case "terms.ftl":
-                        return (
-                            <Terms
-                                kcContext={kcContext}
-                                i18n={i18n}
-                                classes={classescustom}
-                                Template={CustomTemplate}
-                                doUseDefaultCss={true}
-                            />
-                        );
-                    case "register.ftl":
-                        return (
-                            <Register
-                                kcContext={kcContext}
-                                i18n={i18n}
-                                classes={classescustom}
-                                Template={CustomTemplate}
-                                doUseDefaultCss={true}
-                                UserProfileFormFields={UserProfileFormFieldsMock} // Pass the required UserProfileFormFields prop
-                                doMakeUserConfirmPassword={true} // or false, depending on your requirement
-                            />
-                        );
-                    case "login.ftl":
-                        return (
-                            <Login
-                                kcContext={kcContext}
-                                i18n={i18n}
-                                classes={classescustom}
-                                Template={CustomTemplate}
-                                doUseDefaultCss={true}
-                            />
-                        );
+                    // case "terms.ftl":
+                    //     return (
+                    //         <Terms
+                    //             kcContext={kcContext}
+                    //             i18n={i18n}
+                    //             classes={classescustom}
+                    //             Template={CustomTemplate}
+                    //             doUseDefaultCss={true}
+                    //         />
+                    //     );
+                    // case "register.ftl":
+                    //     return (
+                    //         <Register
+                    //             kcContext={kcContext}
+                    //             i18n={i18n}
+                    //             classes={classescustom}
+                    //             Template={CustomTemplate}
+                    //             doUseDefaultCss={true}
+                    //             UserProfileFormFields={UserProfileFormFields} // Pass the required UserProfileFormFields prop
+                    //             doMakeUserConfirmPassword={true} // or false, depending on your requirement
+                    //         />
+                    //     );
+                    // case "login.ftl":
+                    //     return (
+                    //         <Login
+                    //             kcContext={kcContext}
+                    //             i18n={i18n}
+                    //             classes={classescustom}
+                    //             Template={CustomTemplate}
+                    //             doUseDefaultCss={true}
+                    //         />
+                    //     );
 
                     default:
                         return (

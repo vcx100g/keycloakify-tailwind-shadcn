@@ -5,7 +5,7 @@ import type { UserProfileFormFieldsProps } from "keycloakify/login/UserProfileFo
 import type { PageProps } from "keycloakify/login/pages/PageProps";
 import type { KcContext } from "../KcContext";
 import type { I18n } from "../i18n";
-
+import { Button, buttonVariants } from "../../components/ui/button";
 type RegisterProps = PageProps<Extract<KcContext, { pageId: "register.ftl" }>, I18n> & {
     UserProfileFormFields: LazyOrNot<(props: UserProfileFormFieldsProps) => JSX.Element>;
     doMakeUserConfirmPassword: boolean;
@@ -36,7 +36,7 @@ export default function Register(props: RegisterProps) {
             displayMessage={messagesPerField.exists("global")}
             displayRequiredFields
         >
-            <form id="kc-register-form" className={kcClsx("kcFormClass")} action={url.registrationAction} method="post">
+            <form id="kc-register-form" className="" action={url.registrationAction} method="post">
                 <UserProfileFormFields
                     kcContext={kcContext}
                     i18n={i18n}
@@ -54,27 +54,33 @@ export default function Register(props: RegisterProps) {
                     />
                 )}
                 {recaptchaRequired && (
-                    <div className="form-group">
-                        <div className={kcClsx("kcInputWrapperClass")}>
+                    <div className="form-group  pt-7">
+                        <div className="mx-5">
                             <div className="g-recaptcha" data-size="compact" data-sitekey={recaptchaSiteKey}></div>
                         </div>
                     </div>
                 )}
-                <div className={kcClsx("kcFormGroupClass")}>
-                    <div id="kc-form-options" className={kcClsx("kcFormOptionsClass")}>
-                        <div className={kcClsx("kcFormOptionsWrapperClass")}>
+                <div className="  ">
+                    <div className="mx-2">
+                        <div>
                             <span>
-                                <a href={url.loginUrl}>{msg("backToLogin")}</a>
+                                <a href={url.loginUrl} className={buttonVariants({ variant: "link" })}>
+                                    {msg("backToLogin")}
+                                </a>
                             </span>
                         </div>
                     </div>
-                    <div id="kc-form-buttons" className={kcClsx("kcFormButtonsClass")}>
-                        <input
+                    <div id="kc-form-buttons" className="px-5">
+                        <Button
                             disabled={!isFormSubmittable || (termsAcceptanceRequired && !areTermsAccepted)}
-                            className={kcClsx("kcButtonClass", "kcButtonPrimaryClass", "kcButtonBlockClass", "kcButtonLargeClass")}
+                            // className={kcClsx("kcButtonClass", "kcButtonPrimaryClass", "kcButtonBlockClass", "kcButtonLargeClass")}
                             type="submit"
-                            value={msgStr("doRegister")}
-                        />
+                            className="w-full "
+                            variant={"default"}
+                            //value={msgStr("doRegister")}>
+                        >
+                            {msgStr("doRegister")}
+                        </Button>
                     </div>
                 </div>
             </form>

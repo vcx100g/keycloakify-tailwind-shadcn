@@ -174,7 +174,7 @@ export function Template(props: TemplateProps<KcContext, I18n>) {
         );
     };
     return (
-        <div className="bg-background min-h-screen flex flex-col items-center justify-center   ">
+        <div className="bg-background  min-h-screen  flex flex-col items-center justify-center  prose dark:prose-invert max-w-none">
             <div id="kc-header-wrapper" className="text-center text-foreground">
                 {msgStr("loginTitleHtml", realm.displayNameHtml)}
             </div>
@@ -182,7 +182,7 @@ export function Template(props: TemplateProps<KcContext, I18n>) {
                 {languageSelector()}
                 <CardTitle className="py-0 my-0 bg-slate-500"></CardTitle>
                 <CardContent className="space-y-8 py-5">
-                    <header className="text-center text-3xl ">
+                    <header className="text-center  ">
                         {(() => {
                             const node = !(auth !== undefined && auth.showUsername && !auth.showResetCredentials) ? (
                                 <h1 id="kc-page-title">{headerNode}</h1>
@@ -200,7 +200,7 @@ export function Template(props: TemplateProps<KcContext, I18n>) {
 
                             if (displayRequiredFields) {
                                 return (
-                                    <div className={kcClsx("kcContentWrapperClass")}>
+                                    <div className="text-sm">
                                         <div className={clsx(kcClsx("kcLabelWrapperClass"), "subtitle")}>
                                             <span className="subtitle">
                                                 <span className="required">*</span>

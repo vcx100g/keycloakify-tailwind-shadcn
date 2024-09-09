@@ -11,6 +11,28 @@ import type { UserProfileFormFieldsProps } from "keycloakify/login/UserProfileFo
 import type { Attribute } from "keycloakify/login/KcContext";
 import type { KcContext } from "./KcContext";
 import type { I18n } from "./i18n";
+import { Input } from "../components/ui/input";
+
+/**
+ * Renders each form field by looping through formFieldStates:
+ *
+ * formFieldStates.map(({ attribute, displayableErrors, valueOrValues }) => {
+ *   ├─ GroupLabel (optional): Displays the group header if the field belongs to a group.
+ *   ├─ BeforeField (optional): Custom component rendered before the form field.
+ *   ├─ Form Field
+ *   │   ├─ Label: Displays the field's name (e.g., "Username", "Email").
+ *   │   ├─ Input Field (dynamic based on field type):
+ *   │   │   ├─ InputTag: Standard input fields like text, email, etc.
+ *   │   │   ├─ TextareaTag: For textarea fields.
+ *   │   │   ├─ SelectTag: For dropdown/select fields.
+ *   │   │   ├─ InputTagSelects: For radio buttons or checkboxes.
+ *   │   │   └─ PasswordWrapper: For password fields with show/hide functionality.
+ *   │   └─ Helper Text (optional): Additional information displayed before or after the input field.
+ *   ├─ FieldErrors (optional): Displays validation errors for the current field.
+ *   ├─ AddRemoveButtonsMultiValuedAttribute (optional): Add/Remove buttons for multiple values in the field.
+ *   └─ AfterField (optional): Custom component rendered after the form field.
+ * })
+ */
 
 export default function UserProfileFormFields(props: UserProfileFormFieldsProps<KcContext, I18n>) {
     const { kcContext, i18n, kcClsx, onIsFormSubmittableValueChange, doMakeUserConfirmPassword, BeforeField, AfterField } = props;
@@ -33,82 +55,97 @@ export default function UserProfileFormFields(props: UserProfileFormFieldsProps<
     const groupNameRef = { current: "" };
 
     return (
-        <>
+        <div className="prose dark:prose-invert ">
             {formFieldStates.map(({ attribute, displayableErrors, valueOrValues }) => {
                 return (
-                    <Fragment key={attribute.name}>
-                        <GroupLabel attribute={attribute} groupNameRef={groupNameRef} i18n={i18n} kcClsx={kcClsx} />
-                        {BeforeField !== undefined && (
-                            <BeforeField
-                                attribute={attribute}
-                                dispatchFormAction={dispatchFormAction}
-                                displayableErrors={displayableErrors}
-                                valueOrValues={valueOrValues}
-                                kcClsx={kcClsx}
-                                i18n={i18n}
-                            />
-                        )}
-                        <div
-                            className={kcClsx("kcFormGroupClass")}
-                            style={{
-                                display: attribute.name === "password-confirm" && !doMakeUserConfirmPassword ? "none" : undefined
-                            }}
-                        >
-                            <div className={kcClsx("kcLabelWrapperClass")}>
-                                <label htmlFor={attribute.name} className={kcClsx("kcLabelClass")}>
-                                    {advancedMsg(attribute.displayName ?? "")}
-                                </label>
-                                {attribute.required && <> *</>}
-                            </div>
-                            <div className={kcClsx("kcInputWrapperClass")}>
-                                {attribute.annotations.inputHelperTextBefore !== undefined && (
-                                    <div
-                                        className={kcClsx("kcInputHelperTextBeforeClass")}
-                                        id={`form-help-text-before-${attribute.name}`}
-                                        aria-live="polite"
-                                    >
-                                        {advancedMsg(attribute.annotations.inputHelperTextBefore)}
-                                    </div>
-                                )}
-                                <InputFieldByType
+                    <div className=" my-5">
+                        <Fragment key={attribute.name}>
+                            <GroupLabel attribute={attribute} groupNameRef={groupNameRef} i18n={i18n} kcClsx={kcClsx} />
+                            {BeforeField !== undefined && (
+                                <BeforeField
                                     attribute={attribute}
-                                    valueOrValues={valueOrValues}
-                                    displayableErrors={displayableErrors}
                                     dispatchFormAction={dispatchFormAction}
+                                    displayableErrors={displayableErrors}
+                                    valueOrValues={valueOrValues}
                                     kcClsx={kcClsx}
                                     i18n={i18n}
                                 />
-                                <FieldErrors attribute={attribute} displayableErrors={displayableErrors} kcClsx={kcClsx} fieldIndex={undefined} />
-                                {attribute.annotations.inputHelperTextAfter !== undefined && (
-                                    <div
-                                        className={kcClsx("kcInputHelperTextAfterClass")}
-                                        id={`form-help-text-after-${attribute.name}`}
-                                        aria-live="polite"
-                                    >
-                                        {advancedMsg(attribute.annotations.inputHelperTextAfter)}
-                                    </div>
-                                )}
-
-                                {AfterField !== undefined && (
-                                    <AfterField
+                            )}
+                            <div
+                                // className={kcClsx("kcFormGroupClass")}
+                                className=""
+                                style={{
+                                    display: attribute.name === "password-confirm" && !doMakeUserConfirmPassword ? "none" : undefined
+                                }}
+                            >
+                                <div className="mx-6">
+                                    <label htmlFor={attribute.name} className="">
+                                        {advancedMsg(attribute.displayName ?? "")}
+                                    </label>
+                                    {attribute.required && <span className="text-danger"> *</span>}
+                                </div>
+                                <div className={kcClsx("kcInputWrapperClass")}>
+                                    {attribute.annotations.inputHelperTextBefore !== undefined && (
+                                        <div
+                                            className={kcClsx("kcInputHelperTextBeforeClass")}
+                                            id={`form-help-text-before-${attribute.name}`}
+                                            aria-live="polite"
+                                        >
+                                            {advancedMsg(attribute.annotations.inputHelperTextBefore)}
+                                        </div>
+                                    )}
+                                    <InputFieldByType
                                         attribute={attribute}
-                                        dispatchFormAction={dispatchFormAction}
-                                        displayableErrors={displayableErrors}
                                         valueOrValues={valueOrValues}
+                                        displayableErrors={displayableErrors}
+                                        dispatchFormAction={dispatchFormAction}
                                         kcClsx={kcClsx}
                                         i18n={i18n}
                                     />
-                                )}
-                                {/* NOTE: Downloading of html5DataAnnotations scripts is done in the useUserProfileForm hook */}
+                                    <FieldErrors attribute={attribute} displayableErrors={displayableErrors} kcClsx={kcClsx} fieldIndex={undefined} />
+                                    {attribute.annotations.inputHelperTextAfter !== undefined && (
+                                        <div
+                                            className={kcClsx("kcInputHelperTextAfterClass")}
+                                            id={`form-help-text-after-${attribute.name}`}
+                                            aria-live="polite"
+                                        >
+                                            {advancedMsg(attribute.annotations.inputHelperTextAfter)}
+                                        </div>
+                                    )}
+
+                                    {AfterField !== undefined && (
+                                        <AfterField
+                                            attribute={attribute}
+                                            dispatchFormAction={dispatchFormAction}
+                                            displayableErrors={displayableErrors}
+                                            valueOrValues={valueOrValues}
+                                            kcClsx={kcClsx}
+                                            i18n={i18n}
+                                        />
+                                    )}
+                                    {/* NOTE: Downloading of html5DataAnnotations scripts is done in the useUserProfileForm hook */}
+                                </div>
                             </div>
-                        </div>
-                    </Fragment>
+                        </Fragment>
+                    </div>
                 );
             })}
-        </>
+        </div>
     );
 }
-
+/**
+ * GroupLabel:
+ * This component is responsible for rendering a label and description for form field groups.
+ * It checks whether the current form field belongs to a group and, if so, renders the group's header and description.
+ * The group name is compared with a reference (`groupNameRef`) to ensure that the label is only rendered once per group.
+ * It uses `i18n` for internationalization, translating the group's header and description.
+ *
+ * Props:
+ * - attribute: The current form field's attribute object, which contains details about the field's group, name, and more.
+ * - groupNameRef: A reference object that tracks the current group name to prevent duplicate labels for the same group.
+ * - i18n: An internationalization object used to translate messages.
+ * - kcClsx: A utility function used to apply Keycloak-specific CSS classes.
+ */
 function GroupLabel(props: {
     attribute: Attribute;
     groupNameRef: {
@@ -181,7 +218,8 @@ function FieldErrors(props: { attribute: Attribute; displayableErrors: FormField
     return (
         <span
             id={`input-error-${attribute.name}${fieldIndex === undefined ? "" : `-${fieldIndex}`}`}
-            className={kcClsx("kcInputErrorMessageClass")}
+            // className={kcClsx("kcInputErrorMessageClass")}
+            className="text-danger text-md "
             aria-live="polite"
         >
             {displayableErrors
@@ -281,7 +319,7 @@ function InputTag(props: InputFieldByTypeProps & { fieldIndex: number | undefine
 
     return (
         <>
-            <input
+            <Input
                 type={(() => {
                     const { inputType } = attribute.annotations;
 
@@ -303,7 +341,7 @@ function InputTag(props: InputFieldByTypeProps & { fieldIndex: number | undefine
 
                     return valueOrValues;
                 })()}
-                className={kcClsx("kcInputClass")}
+                // className={kcClsx("kcInputClass")}
                 aria-invalid={displayableErrors.find(error => error.fieldIndex === fieldIndex) !== undefined}
                 disabled={attribute.readOnly}
                 autoComplete={attribute.autocomplete}

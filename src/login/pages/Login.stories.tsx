@@ -4,7 +4,7 @@ import { createKcPageStory } from "../KcPageStory";
 const { KcPageStory } = createKcPageStory({ pageId: "login.ftl" });
 
 const meta = {
-    title: "login/login.ftl/new",
+    title: "login/login.ftl",
     component: KcPageStory
 } satisfies Meta<typeof KcPageStory>;
 
