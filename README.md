@@ -44,8 +44,9 @@ With the integration of Tailwind CSS, you get access to utility-first CSS for ra
 -   Login Page
 -   Terms Page
 -   Register Page (in progress)
--   error
--   code
+-   Error
+-   Code
+-   Delete Account Confirm
 
 Stay tuned as more pages are upgraded with Tailwind CSS and ShadCN UI components!
 
