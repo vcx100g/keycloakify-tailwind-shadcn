@@ -35,8 +35,8 @@ const Base = ({
 
 const doMakeUserConfirmPassword = true;
 
-export default function KcPage(props: KcContext) {
-    const kcContext = props; // Get the `legacy` flag as a prop
+export default function KcPage(props: { kcContext: KcContext }) {
+    const kcContext = props.kcContext; // Get the `legacy` flag as a prop
     const { i18n } = useI18n({ kcContext });
 
     return (
