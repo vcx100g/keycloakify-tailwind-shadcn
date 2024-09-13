@@ -71,4 +71,9 @@
     }
   }
 
-  
+
+input[type="checkbox"], input[type="radio"] {
+  margin: 0; /* Remove the extra margin */
+  vertical-align: middle; /* Vertically align checkbox and radio buttons with text */
+  line-height: normal; /* Ensure normal line height */
+}

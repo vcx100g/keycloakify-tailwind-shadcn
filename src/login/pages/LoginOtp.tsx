@@ -30,13 +30,13 @@ export default function LoginOtp(props: PageProps<Extract<KcContext, { pageId: "
         >
             <form id="kc-otp-login-form" className={kcClsx("kcFormClass")} action={url.loginAction} method="post">
                 {otpLogin.userOtpCredentials.length > 1 && (
-                    <div className={kcClsx("kcFormGroupClass")}>
-                        <div className={kcClsx("kcInputWrapperClass")}>
-                            <div className="grid grid-cols-3 gap-2">
+                    <div>
+                        <div>
+                            <div className="grid grid-cols-2 gap-1 my-5">
                                 {otpLogin.userOtpCredentials.map((otpCredential, index) => (
                                     <Fragment key={index}>
                                         {/* <div className="flex flex-row items-center space-x-2"> */}
-                                        <div>
+                                        <div className="flex items-center ">
                                             <input
                                                 id={`kc-otp-credential-${index}`}
                                                 className=" "
@@ -46,8 +46,9 @@ export default function LoginOtp(props: PageProps<Extract<KcContext, { pageId: "
                                                 value={otpCredential.id}
                                                 defaultChecked={otpCredential.id === otpLogin.selectedCredentialId}
                                             />
+
                                             <label htmlFor={`kc-otp-credential-${index}`} tabIndex={index} className="mx-3">
-                                                <div className="flex space-x-3">
+                                                <div className="flex space-x-3  text-xl">
                                                     <span>
                                                         <i className={kcClsx("kcLoginOTPListItemIconClass")} aria-hidden="true"></i>
                                                     </span>
@@ -55,14 +56,6 @@ export default function LoginOtp(props: PageProps<Extract<KcContext, { pageId: "
                                                 </div>
                                             </label>
                                         </div>
-                                        {/* <label htmlFor={`kc-otp-credential-${index}`} className={kcClsx("kcLoginOTPListClass")} tabIndex={index}>
-                                        <span className={kcClsx("kcLoginOTPListItemHeaderClass")}>
-                                        <span className={kcClsx("kcLoginOTPListItemIconBodyClass")}>
-                                        <i className={kcClsx("kcLoginOTPListItemIconClass")} aria-hidden="true"></i>
-                                        </span>
-                                        <span className={kcClsx("kcLoginOTPListItemTitleClass")}>{otpCredential.userLabel}</span>
-                                        </span>
-                                        </label> */}
                                     </Fragment>
                                 ))}
                             </div>

@@ -153,18 +153,16 @@ export default function Login(props: PageProps<Extract<KcContext, { pageId: "log
                             <div className="flex flex-row items-center justify-between text-lg ">
                                 <div>
                                     {realm.rememberMe && !usernameHidden && (
-                                        <div>
-                                            <div className="flex items-center   space-x-2 ">
-                                                <input
-                                                    tabIndex={5}
-                                                    // id="rememberMe"
-                                                    className={`${checkboxVariants({})} `}
-                                                    name="rememberMe"
-                                                    type="checkbox"
-                                                    defaultChecked={!!login.rememberMe}
-                                                />
-                                                <span>{msgStr("rememberMe")}</span>
-                                            </div>
+                                        <div className="flex items-center space-x-2 ">
+                                            <input
+                                                tabIndex={5}
+                                                // id="rememberMe"
+                                                className={clsx(checkboxVariants({}), "")}
+                                                name="rememberMe"
+                                                type="checkbox"
+                                                defaultChecked={!!login.rememberMe}
+                                            />
+                                            <span>{msgStr("rememberMe")}</span>
                                         </div>
                                     )}
                                 </div>
