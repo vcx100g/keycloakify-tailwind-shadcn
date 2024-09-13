@@ -53,6 +53,7 @@ With the integration of Tailwind CSS, you get access to utility-first CSS for ra
 -   info
 -   Login Config Totp
 -   Login Idp Link Confirm
+-   Login Idp Link Email
 
 Stay tuned as more pages are upgraded with Tailwind CSS and ShadCN UI components!
 

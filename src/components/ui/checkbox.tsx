@@ -7,7 +7,7 @@ import { cn } from "../../lib/utils";
 // Define variants for the checkbox styling
 // Simplified without variants
 const checkboxVariants = cva(
-    "appearance-none all-unset peer h-4 w-4 shrink-0 rounded-sm border border-primary bg-background text-foreground checked:bg-primary checked:text-primary-foreground checked:border-transparent checked:after:content-['✓'] checked:after:flex checked:after:items-center checked:after:justify-center checked:after:h-full checked:after:text-xs checked:after:leading-none checked:after:text-center ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+    "appearance-none all-unset align-middle peer h-4 w-4 shrink-0 rounded-sm border border-primary bg-background text-foreground checked:bg-primary checked:text-primary-foreground checked:border-transparent checked:after:content-['✓'] checked:after:flex checked:after:items-center checked:after:justify-center checked:after:h-full checked:after:text-xs checked:after:leading-none checked:after:text-center ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
 );
 
 export interface CheckboxProps

@@ -17,6 +17,9 @@ import FrontchannelLogout from "./pages/FrontchannelLogout";
 import IdpReviewUserProfile from "./pages/IdpReviewUserProfile";
 import LoginConfigTotp from "./pages/LoginConfigTotp";
 import LoginIdpLinkConfirm from "./pages/LoginIdpLinkConfirm";
+import LoginIdpLinkEmail from "./pages/LoginIdpLinkEmail";
+import LoginOauthGrant from "./pages/LoginOauthGrant";
+import LoginOtp from "./pages/LoginOtp";
 const UserProfileFormFields = lazy(() => import("./UserProfileFormFields"));
 
 // Base component to render DefaultPage
@@ -52,6 +55,36 @@ export default function KcPage(props: { kcContext: KcContext }) {
         <Suspense>
             {(() => {
                 switch (kcContext.pageId) {
+                    case "login-otp.ftl":
+                        return (
+                            <LoginOtp
+                                kcContext={kcContext}
+                                i18n={i18n}
+                                classes={classescustom}
+                                Template={CustomTemplate}
+                                doUseDefaultCss={true}
+                            />
+                        );
+                    case "login-oauth-grant.ftl":
+                        return (
+                            <LoginOauthGrant
+                                kcContext={kcContext}
+                                i18n={i18n}
+                                classes={classescustom}
+                                Template={CustomTemplate}
+                                doUseDefaultCss={true}
+                            />
+                        );
+                    case "login-idp-link-email.ftl":
+                        return (
+                            <LoginIdpLinkEmail
+                                kcContext={kcContext}
+                                i18n={i18n}
+                                classes={classescustom}
+                                Template={CustomTemplate}
+                                doUseDefaultCss={true}
+                            />
+                        );
                     case "login-idp-link-confirm.ftl":
                         return (
                             <LoginIdpLinkConfirm

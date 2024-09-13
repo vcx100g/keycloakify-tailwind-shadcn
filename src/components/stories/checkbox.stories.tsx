@@ -26,7 +26,7 @@ const CheckboxTemplate = (args: any) => {
     const [checked, setChecked] = useState<CheckedState>(false); // Now we use CheckedState type
 
     return (
-        <div className="flex items-center space-x-2">
+        <div className=" flex items-center space-x-2">
             <Checkbox
                 {...args}
                 checked={checked}
