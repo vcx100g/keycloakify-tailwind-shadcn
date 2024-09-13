@@ -8,6 +8,7 @@ import type { I18n } from "../i18n";
 import { Button } from "../../components/ui/button";
 import { Input } from "../../components/ui/input";
 import { Label } from "../../components/ui/label";
+import { checkboxVariants } from "../../components/ui/checkbox";
 
 import { Separator } from "../../components/ui/separator";
 export default function Login(props: PageProps<Extract<KcContext, { pageId: "login.ftl" }>, I18n>) {
@@ -157,7 +158,7 @@ export default function Login(props: PageProps<Extract<KcContext, { pageId: "log
                                                 <input
                                                     tabIndex={5}
                                                     // id="rememberMe"
-                                                    className="w-4 h-4"
+                                                    className={`${checkboxVariants({})} `}
                                                     name="rememberMe"
                                                     type="checkbox"
                                                     defaultChecked={!!login.rememberMe}

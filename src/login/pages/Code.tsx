@@ -3,6 +3,7 @@ import type { PageProps } from "keycloakify/login/pages/PageProps";
 import type { KcContext } from "../KcContext";
 import type { I18n } from "../i18n";
 import { Input } from "../../components/ui/input";
+import { TextDisplay } from "../../components/ui/TextDisplay";
 export default function Code(props: PageProps<Extract<KcContext, { pageId: "code.ftl" }>, I18n>) {
     const { kcContext, i18n, doUseDefaultCss, Template, classes } = props;
 

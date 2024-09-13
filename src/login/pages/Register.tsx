@@ -6,6 +6,7 @@ import type { PageProps } from "keycloakify/login/pages/PageProps";
 import type { KcContext } from "../KcContext";
 import type { I18n } from "../i18n";
 import { Button, buttonVariants } from "../../components/ui/button";
+import { checkboxVariants } from "../../components/ui/checkbox";
 type RegisterProps = PageProps<Extract<KcContext, { pageId: "register.ftl" }>, I18n> & {
     UserProfileFormFields: LazyOrNot<(props: UserProfileFormFieldsProps) => JSX.Element>;
     doMakeUserConfirmPassword: boolean;
@@ -109,18 +110,20 @@ function TermsAcceptance(props: {
             </div>
             <div className="form-group">
                 <div className={kcClsx("kcLabelWrapperClass")}>
-                    <input
-                        type="checkbox"
-                        id="termsAccepted"
-                        name="termsAccepted"
-                        className={kcClsx("kcCheckboxInputClass")}
-                        checked={areTermsAccepted}
-                        onChange={e => onAreTermsAcceptedValueChange(e.target.checked)}
-                        aria-invalid={messagesPerField.existsError("termsAccepted")}
-                    />
-                    <label htmlFor="termsAccepted" className={kcClsx("kcLabelClass")}>
-                        {msg("acceptTerms")}
-                    </label>
+                    <div className="flex items-center space-x-2">
+                        <input
+                            type="checkbox"
+                            id="termsAccepted"
+                            name="termsAccepted"
+                            className={checkboxVariants({})}
+                            checked={areTermsAccepted}
+                            onChange={e => onAreTermsAcceptedValueChange(e.target.checked)}
+                            aria-invalid={messagesPerField.existsError("termsAccepted")}
+                        />
+                        <label htmlFor="termsAccepted" className={kcClsx("kcLabelClass")}>
+                            {msg("acceptTerms")}
+                        </label>
+                    </div>
                 </div>
                 {messagesPerField.existsError("termsAccepted") && (
                     <div className={kcClsx("kcLabelWrapperClass")}>
