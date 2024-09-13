@@ -51,6 +51,8 @@ With the integration of Tailwind CSS, you get access to utility-first CSS for ra
 -   Frontchannel Logout
 -   Idp Review UserProfile
 -   info
+-   Login Config Totp
+-   Login Idp Link Confirm
 
 Stay tuned as more pages are upgraded with Tailwind CSS and ShadCN UI components!
 

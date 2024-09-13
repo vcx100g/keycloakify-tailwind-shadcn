@@ -16,6 +16,7 @@ import DeleteCredential from "./pages/DeleteCredential";
 import FrontchannelLogout from "./pages/FrontchannelLogout";
 import IdpReviewUserProfile from "./pages/IdpReviewUserProfile";
 import LoginConfigTotp from "./pages/LoginConfigTotp";
+import LoginIdpLinkConfirm from "./pages/LoginIdpLinkConfirm";
 const UserProfileFormFields = lazy(() => import("./UserProfileFormFields"));
 
 // Base component to render DefaultPage
@@ -51,6 +52,16 @@ export default function KcPage(props: { kcContext: KcContext }) {
         <Suspense>
             {(() => {
                 switch (kcContext.pageId) {
+                    case "login-idp-link-confirm.ftl":
+                        return (
+                            <LoginIdpLinkConfirm
+                                kcContext={kcContext}
+                                i18n={i18n}
+                                classes={classescustom}
+                                Template={CustomTemplate}
+                                doUseDefaultCss={true}
+                            />
+                        );
                     case "login-config-totp.ftl":
                         return (
                             <LoginConfigTotp
