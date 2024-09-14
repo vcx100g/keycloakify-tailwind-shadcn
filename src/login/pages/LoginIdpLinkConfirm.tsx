@@ -23,7 +23,7 @@ export default function LoginIdpLinkConfirm(props: PageProps<Extract<KcContext, 
                     <Button type="submit" className="flex-1" name="submitAction" id="updateProfile" value="updateProfile">
                         {msg("confirmLinkIdpReviewProfile")}
                     </Button>
-                    <Button type="submit" className="flex-1" name="submitAction" id="linkAccount" value="linkAccount">
+                    <Button type="submit" variant={"outline"} className="flex-1" name="submitAction" id="linkAccount" value="linkAccount">
                         {msg("confirmLinkIdpContinue", idpAlias)}
                     </Button>
                 </div>

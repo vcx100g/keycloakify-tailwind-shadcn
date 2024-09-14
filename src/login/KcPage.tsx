@@ -20,6 +20,9 @@ import LoginIdpLinkConfirm from "./pages/LoginIdpLinkConfirm";
 import LoginIdpLinkEmail from "./pages/LoginIdpLinkEmail";
 import LoginOauthGrant from "./pages/LoginOauthGrant";
 import LoginOtp from "./pages/LoginOtp";
+import LoginPageExpired from "./pages/LoginPageExpired";
+import LoginPassword from "./pages/LoginPassword";
+import LoginResetOtp from "./pages/LoginResetOtp";
 const UserProfileFormFields = lazy(() => import("./UserProfileFormFields"));
 
 // Base component to render DefaultPage
@@ -55,6 +58,36 @@ export default function KcPage(props: { kcContext: KcContext }) {
         <Suspense>
             {(() => {
                 switch (kcContext.pageId) {
+                    case "login-reset-otp.ftl":
+                        return (
+                            <LoginResetOtp
+                                kcContext={kcContext}
+                                i18n={i18n}
+                                classes={classescustom}
+                                Template={CustomTemplate}
+                                doUseDefaultCss={true}
+                            />
+                        );
+                    case "login-password.ftl":
+                        return (
+                            <LoginPassword
+                                kcContext={kcContext}
+                                i18n={i18n}
+                                classes={classescustom}
+                                Template={CustomTemplate}
+                                doUseDefaultCss={true}
+                            />
+                        );
+                    case "login-page-expired.ftl":
+                        return (
+                            <LoginPageExpired
+                                kcContext={kcContext}
+                                i18n={i18n}
+                                classes={classescustom}
+                                Template={CustomTemplate}
+                                doUseDefaultCss={true}
+                            />
+                        );
                     case "login-otp.ftl":
                         return (
                             <LoginOtp
