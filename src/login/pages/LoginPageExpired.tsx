@@ -1,7 +1,7 @@
 import type { PageProps } from "keycloakify/login/pages/PageProps";
 import type { KcContext } from "../KcContext";
 import type { I18n } from "../i18n";
-import { buttonVariants } from "@/components/ui/button";
+import { buttonVariants } from "../../components/ui/button";
 import { cn } from "../../lib/utils";
 
 export default function LoginPageExpired(props: PageProps<Extract<KcContext, { pageId: "login-page-expired.ftl" }>, I18n>) {

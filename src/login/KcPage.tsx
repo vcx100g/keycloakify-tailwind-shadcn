@@ -32,6 +32,13 @@ import LoginX509Info from "./pages/LoginX509Info";
 import LogoutConfirm from "./pages/LogoutConfirm";
 import SamlPostForm from "./pages/SamlPostForm";
 import SelectAuthenticator from "./pages/SelectAuthenticator";
+import UpdateEmail from "./pages/UpdateEmail";
+import WebauthnAuthenticate from "./pages/WebauthnAuthenticate";
+import WebauthnError from "./pages/WebauthnError";
+import WebauthnRegister from "./pages/WebauthnRegister";
+import LoginOauth2DeviceVerifyUserCode from "./pages/LoginOauth2DeviceVerifyUserCode";
+import LoginRecoveryAuthnCodeConfig from "./pages/LoginRecoveryAuthnCodeConfig";
+import LoginRecoveryAuthnCodeInput from "./pages/LoginRecoveryAuthnCodeInput";
 const UserProfileFormFields = lazy(() => import("./UserProfileFormFields"));
 
 // Base component to render DefaultPage
@@ -67,6 +74,78 @@ export default function KcPage(props: { kcContext: KcContext }) {
         <Suspense>
             {(() => {
                 switch (kcContext.pageId) {
+                    case "login-recovery-authn-code-input.ftl":
+                        return (
+                            <LoginRecoveryAuthnCodeInput
+                                kcContext={kcContext}
+                                i18n={i18n}
+                                classes={classescustom}
+                                Template={CustomTemplate}
+                                doUseDefaultCss={true}
+                            />
+                        );
+                    case "login-recovery-authn-code-config.ftl":
+                        return (
+                            <LoginRecoveryAuthnCodeConfig
+                                kcContext={kcContext}
+                                i18n={i18n}
+                                classes={classescustom}
+                                Template={CustomTemplate}
+                                doUseDefaultCss={true}
+                            />
+                        );
+                    case "login-oauth2-device-verify-user-code.ftl":
+                        return (
+                            <LoginOauth2DeviceVerifyUserCode
+                                kcContext={kcContext}
+                                i18n={i18n}
+                                classes={classescustom}
+                                Template={CustomTemplate}
+                                doUseDefaultCss={true}
+                            />
+                        );
+                    case "webauthn-register.ftl":
+                        return (
+                            <WebauthnRegister
+                                kcContext={kcContext}
+                                i18n={i18n}
+                                classes={classescustom}
+                                Template={CustomTemplate}
+                                doUseDefaultCss={true}
+                            />
+                        );
+                    case "webauthn-error.ftl":
+                        return (
+                            <WebauthnError
+                                kcContext={kcContext}
+                                i18n={i18n}
+                                classes={classescustom}
+                                Template={CustomTemplate}
+                                doUseDefaultCss={true}
+                            />
+                        );
+                    case "webauthn-authenticate.ftl":
+                        return (
+                            <WebauthnAuthenticate
+                                kcContext={kcContext}
+                                i18n={i18n}
+                                classes={classescustom}
+                                Template={CustomTemplate}
+                                doUseDefaultCss={true}
+                            />
+                        );
+                    case "update-email.ftl":
+                        return (
+                            <UpdateEmail
+                                kcContext={kcContext}
+                                i18n={i18n}
+                                classes={classescustom}
+                                Template={CustomTemplate}
+                                doUseDefaultCss={true}
+                                UserProfileFormFields={UserProfileFormFields} // Pass the required UserProfileFormFields prop
+                                doMakeUserConfirmPassword={true} // or false, depending on your requirement
+                            />
+                        );
                     case "select-authenticator.ftl":
                         return (
                             <SelectAuthenticator

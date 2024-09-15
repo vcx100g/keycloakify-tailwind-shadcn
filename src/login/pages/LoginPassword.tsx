@@ -8,7 +8,7 @@ import type { I18n } from "../i18n";
 import { PasswordWrapper } from "../../components/ui/PasswordWrapper";
 import { buttonVariants } from "../../components/ui/button";
 import { cn } from "../../lib/utils";
-import { Input } from "@/components/ui/input";
+import { Input } from "../../components/ui/input";
 export default function LoginPassword(props: PageProps<Extract<KcContext, { pageId: "login-password.ftl" }>, I18n>) {
     const { kcContext, i18n, doUseDefaultCss, Template, classes } = props;
 

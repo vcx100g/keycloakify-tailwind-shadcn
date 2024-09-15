@@ -56,6 +56,25 @@ With the integration of Tailwind CSS, you get access to utility-first CSS for ra
 -   Login Idp Link Email
 -   Login Oauth Grant
 -   Login Otp
+-   Login Page Expired
+-   Login Password
+-   Login Reset Otp
+-   Login Updatte Password
+-   Login Update Profile
+-   Login Username
+-   Login Verify Email
+-   Login x509 Info
+-   Logout Confirm
+-   Saml Post Form
+-   Select Authenticator
+-   Update Email
+-   Web Authn Authenticate
+-   Web Authn Error
+-   Web Authn Register
+-   Web Authn Error
+-   Login Oauth2 Device Verify User Code
+-   Login Recovery Authn Code Config
+-   Login Recovery Authn Code input
 
 Stay tuned as more pages are upgraded with Tailwind CSS and ShadCN UI components!
 

@@ -3,8 +3,8 @@ import { getKcClsx } from "keycloakify/login/lib/kcClsx";
 import type { PageProps } from "keycloakify/login/pages/PageProps";
 import type { KcContext } from "../KcContext";
 import type { I18n } from "../i18n";
-import { buttonVariants } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
+import { buttonVariants } from "../../components/ui/button";
+import { cn } from "../../lib/utils";
 export default function LoginResetOtp(props: PageProps<Extract<KcContext, { pageId: "login-reset-otp.ftl" }>, I18n>) {
     const { kcContext, i18n, doUseDefaultCss, Template, classes } = props;
 

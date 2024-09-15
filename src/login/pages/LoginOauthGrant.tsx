@@ -2,7 +2,7 @@ import { getKcClsx } from "keycloakify/login/lib/kcClsx";
 import { PageProps } from "keycloakify/login/pages/PageProps";
 import { KcContext } from "../KcContext";
 import type { I18n } from "../i18n";
-import { buttonVariants } from "@/components/ui/button";
+import { buttonVariants } from "../../components/ui/button";
 export default function LoginOauthGrant(props: PageProps<Extract<KcContext, { pageId: "login-oauth-grant.ftl" }>, I18n>) {
     const { kcContext, i18n, doUseDefaultCss, classes, Template } = props;
     const { url, oauth, client } = kcContext;
