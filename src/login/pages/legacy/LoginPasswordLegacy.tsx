@@ -5,7 +5,10 @@ import { getKcClsx, type KcClsx } from "keycloakify/login/lib/kcClsx";
 import type { PageProps } from "keycloakify/login/pages/PageProps";
 import type { KcContext } from "../../KcContext";
 import type { I18n } from "../../i18n";
-
+import { PasswordWrapper } from "../../../components/ui/PasswordWrapper";
+import { buttonVariants } from "../../../components/ui/button";
+import { cn } from "../../../lib/utils";
+import { Input } from "@/components/ui/input";
 export default function LoginPassword(props: PageProps<Extract<KcContext, { pageId: "login-password.ftl" }>, I18n>) {
     const { kcContext, i18n, doUseDefaultCss, Template, classes } = props;
 
@@ -40,17 +43,16 @@ export default function LoginPassword(props: PageProps<Extract<KcContext, { page
                         action={url.loginAction}
                         method="post"
                     >
-                        <div className={clsx(kcClsx("kcFormGroupClass"), "no-bottom-margin")}>
-                            <hr />
-                            <label htmlFor="password" className={kcClsx("kcLabelClass")}>
+                        <div className={cn()}>
+                            {/* <hr /> */}
+                            <label htmlFor="password" className={cn()}>
                                 {msg("password")}
                             </label>
 
                             <PasswordWrapper kcClsx={kcClsx} i18n={i18n} passwordInputId="password">
-                                <input
+                                <Input
                                     tabIndex={2}
                                     id="password"
-                                    className={kcClsx("kcInputClass")}
                                     name="password"
                                     type="password"
                                     autoFocus
@@ -75,7 +77,11 @@ export default function LoginPassword(props: PageProps<Extract<KcContext, { page
                             <div className={kcClsx("kcFormOptionsWrapperClass")}>
                                 {realm.resetPasswordAllowed && (
                                     <span>
-                                        <a tabIndex={5} href={url.loginResetCredentialsUrl}>
+                                        <a
+                                            tabIndex={5}
+                                            href={url.loginResetCredentialsUrl}
+                                            className={cn(buttonVariants({ variant: "link" }), "underline px-0 mt-2")}
+                                        >
                                             {msg("doForgotPassword")}
                                         </a>
                                     </span>
@@ -85,7 +91,8 @@ export default function LoginPassword(props: PageProps<Extract<KcContext, { page
                         <div id="kc-form-buttons" className={kcClsx("kcFormGroupClass")}>
                             <input
                                 tabIndex={4}
-                                className={kcClsx("kcButtonClass", "kcButtonPrimaryClass", "kcButtonBlockClass", "kcButtonLargeClass")}
+                                // className={kcClsx("kcButtonClass", "kcButtonPrimaryClass", "kcButtonBlockClass", "kcButtonLargeClass")}
+                                className={cn(buttonVariants(), "w-full")}
                                 name="login"
                                 id="kc-login"
                                 type="submit"
@@ -97,36 +104,5 @@ export default function LoginPassword(props: PageProps<Extract<KcContext, { page
                 </div>
             </div>
         </Template>
-    );
-}
-
-function PasswordWrapper(props: { kcClsx: KcClsx; i18n: I18n; passwordInputId: string; children: JSX.Element }) {
-    const { kcClsx, i18n, passwordInputId, children } = props;
-
-    const { msgStr } = i18n;
-
-    const [isPasswordRevealed, toggleIsPasswordRevealed] = useReducer((isPasswordRevealed: boolean) => !isPasswordRevealed, false);
-
-    useEffect(() => {
-        const passwordInputElement = document.getElementById(passwordInputId);
-
-        assert(passwordInputElement instanceof HTMLInputElement);
-
-        passwordInputElement.type = isPasswordRevealed ? "text" : "password";
-    }, [isPasswordRevealed]);
-
-    return (
-        <div className={kcClsx("kcInputGroup")}>
-            {children}
-            <button
-                type="button"
-                className={kcClsx("kcFormPasswordVisibilityButtonClass")}
-                aria-label={msgStr(isPasswordRevealed ? "hidePassword" : "showPassword")}
-                aria-controls={passwordInputId}
-                onClick={toggleIsPasswordRevealed}
-            >
-                <i className={kcClsx(isPasswordRevealed ? "kcFormPasswordVisibilityIconHide" : "kcFormPasswordVisibilityIconShow")} aria-hidden />
-            </button>
-        </div>
     );
 }

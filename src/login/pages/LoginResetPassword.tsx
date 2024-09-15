@@ -2,7 +2,9 @@ import { getKcClsx } from "keycloakify/login/lib/kcClsx";
 import type { PageProps } from "keycloakify/login/pages/PageProps";
 import type { KcContext } from "../KcContext";
 import type { I18n } from "../i18n";
-
+import { buttonVariants } from "../../components/ui/button";
+import { cn } from "../../lib/utils";
+import { Input } from "@/components/ui/input";
 export default function LoginResetPassword(props: PageProps<Extract<KcContext, { pageId: "login-reset-password.ftl" }>, I18n>) {
     const { kcContext, i18n, doUseDefaultCss, Template, classes } = props;
 
@@ -38,11 +40,11 @@ export default function LoginResetPassword(props: PageProps<Extract<KcContext, {
                         </label>
                     </div>
                     <div className={kcClsx("kcInputWrapperClass")}>
-                        <input
+                        <Input
                             type="text"
                             id="username"
                             name="username"
-                            className={kcClsx("kcInputClass")}
+                            // className={kcClsx("kcInputClass")}
                             autoFocus
                             defaultValue={auth.attemptedUsername ?? ""}
                             aria-invalid={messagesPerField.existsError("username")}
@@ -59,18 +61,21 @@ export default function LoginResetPassword(props: PageProps<Extract<KcContext, {
                         )}
                     </div>
                 </div>
-                <div className={kcClsx("kcFormGroupClass", "kcFormSettingClass")}>
-                    <div id="kc-form-options" className={kcClsx("kcFormOptionsClass")}>
-                        <div className={kcClsx("kcFormOptionsWrapperClass")}>
+                <div>
+                    <div id="kc-form-options">
+                        <div>
                             <span>
-                                <a href={url.loginUrl}>{msg("backToLogin")}</a>
+                                <a href={url.loginUrl} className={cn(buttonVariants({ variant: "link" }), "underline p-0 ")}>
+                                    {msg("backToLogin")}
+                                </a>
                             </span>
                         </div>
                     </div>
 
-                    <div id="kc-form-buttons" className={kcClsx("kcFormButtonsClass")}>
+                    <div id="kc-form-buttons" className="">
                         <input
-                            className={kcClsx("kcButtonClass", "kcButtonPrimaryClass", "kcButtonBlockClass", "kcButtonLargeClass")}
+                            // className={kcClsx("kcButtonClass", "kcButtonPrimaryClass", "kcButtonBlockClass", "kcButtonLargeClass")}
+                            className={cn(buttonVariants({ variant: "default" }), "w-full ")}
                             type="submit"
                             value={msgStr("doSubmit")}
                         />

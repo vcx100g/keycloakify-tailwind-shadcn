@@ -12,6 +12,7 @@ import { checkboxVariants } from "../../components/ui/checkbox";
 
 import { Separator } from "../../components/ui/separator";
 import { PasswordWrapper } from "../../components/ui/PasswordWrapper";
+import SocialProviders from "../../components/ui/SocialProviders";
 export default function Login(props: PageProps<Extract<KcContext, { pageId: "login.ftl" }>, I18n>) {
     const { kcContext, i18n, doUseDefaultCss, Template, classes } = props;
 
@@ -46,36 +47,37 @@ export default function Login(props: PageProps<Extract<KcContext, { pageId: "log
                 </div>
             }
             socialProvidersNode={
-                <>
-                    {realm.password && social.providers !== undefined && social.providers.length !== 0 && (
-                        <div id="kc-social-providers" className="mt-5 space-y-7">
-                            <h2 className="text-center text-lg mt-7">{msg("identity-provider-login-label")}</h2>
-                            <div
-                                className={clsx(
-                                    "text-lg grid gap-2", // Apply a grid and gap between items
-                                    social.providers.length > 1 ? "grid-cols-2" : "grid-cols-1" // Conditional grid columns
-                                )}
-                            >
-                                {social.providers.map((...[p, , providers]) => (
-                                    <div
-                                        key={p.alias}
-                                        className=" items-center bg-accent  w-full py-1 my-1.5 border rounded-lg px-3 hover:bg-primary hover:text-primary-foreground"
-                                    >
-                                        <a
-                                            id={`social-${p.alias}`}
-                                            className="flex flex-row items-center justify-center  w-full py-2 "
-                                            type="button"
-                                            href={p.loginUrl}
-                                        >
-                                            {p.iconClasses && <i className={clsx(p.iconClasses)} aria-hidden="true"></i>}
-                                            <span className="mx-3" dangerouslySetInnerHTML={{ __html: p.displayName }}></span>
-                                        </a>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    )}
-                </>
+                <SocialProviders social={social} kcClsx={kcClsx} clsx={clsx} msg={msg} realm={realm} />
+                // <>
+                //     {realm.password && social.providers !== undefined && social.providers.length !== 0 && (
+                //         <div id="kc-social-providers" className="mt-5 space-y-7">
+                //             <h2 className="text-center text-lg mt-7">{msg("identity-provider-login-label")}</h2>
+                //             <div
+                //                 className={clsx(
+                //                     "text-lg grid gap-2", // Apply a grid and gap between items
+                //                     social.providers.length > 1 ? "grid-cols-2" : "grid-cols-1" // Conditional grid columns
+                //                 )}
+                //             >
+                //                 {social.providers.map((...[p, , providers]) => (
+                //                     <div
+                //                         key={p.alias}
+                //                         className=" items-center bg-accent  w-full py-1 my-1.5 border rounded-lg px-3 hover:bg-primary hover:text-primary-foreground"
+                //                     >
+                //                         <a
+                //                             id={`social-${p.alias}`}
+                //                             className="flex flex-row items-center justify-center  w-full py-2 "
+                //                             type="button"
+                //                             href={p.loginUrl}
+                //                         >
+                //                             {p.iconClasses && <i className={clsx(p.iconClasses)} aria-hidden="true"></i>}
+                //                             <span className="mx-3" dangerouslySetInnerHTML={{ __html: p.displayName }}></span>
+                //                         </a>
+                //                     </div>
+                //                 ))}
+                //             </div>
+                //         </div>
+                //     )}
+                // </>
             }
         >
             <div id="kc-form">
