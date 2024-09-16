@@ -2,7 +2,7 @@
     "name": "keycloakify-starter",
     "version": "0.0.0",
     "description": "Keycloakify Webpack Starter",
-    "homepage": "./",
+    "homepage": "https://nima70.github.io/keycloakify-tailwind-shadcn/storybook/",
     "repository": {
         "type": "git",
         "url": "git://github.com/keycloakify/keycloakify-starter-webpack.git"
