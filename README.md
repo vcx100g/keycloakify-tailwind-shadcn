@@ -6,11 +6,22 @@ This project is designed to be developer-friendly, making it easy to customize t
 
 I strongly believe in the Keycloak ecosystem and found Keycloakify to be an extremely stable and reliable tool for creating custom Keycloak themes. My goal is to further enhance Keycloakify for this specific front-end use case and to make it easier for others to build on top of my work.
 
+##  📚 Project Documentation
+You can find detailed documentation and usage instructions for this project in the online documentation:
+
+[View Documentation](https://nima70.github.io/keycloakify-tailwind-shadcn/site/) 
+
+## 🌟 Live Demo
+You can explore and test the components used in this project through the live Storybook:
+
+[View Storybook](https://nima70.github.io/keycloakify-tailwind-shadcn/storybook/) 
+
 ## 💡 Why This Project?
 
 This project is designed to help the Keycloak developer community by providing a ready-to-use template that integrates Tailwind CSS and ShadCN UI components. Developers can now easily build on this foundation, customizing either the entire theme or individual components in isolation using Storybook. With these tools, creating modern, responsive Keycloak UIs is easier than ever.
 
 Contributions are highly encouraged! Whether you're passionate about Keycloak, Tailwind CSS, or ShadCN, let's collaborate to make Keycloak theming easier and more powerful for everyone.
+
 
 ## 🚀 Quick Start
 
