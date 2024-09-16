@@ -2,11 +2,11 @@
     "name": "keycloakify-starter",
     "version": "0.0.0",
     "description": "Keycloakify Webpack Starter",
-    "homepage": "./",
     "repository": {
         "type": "git",
         "url": "git://github.com/keycloakify/keycloakify-starter-webpack.git"
     },
+    "homepage": "./",
     "scripts": {
         "prestorybook": "keycloakify update-kc-gen && keycloakify copy-keycloak-resources-to-public",
         "storybook": "storybook dev -p 6006",
