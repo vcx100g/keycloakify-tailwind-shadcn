@@ -12,11 +12,6 @@ I strongly believe in the Keycloak ecosystem and found Keycloakify to be an extr
 If things look a bit off on mobile phones or smaller screens, no worries—we're actively working on making this project fully responsive.  
 Stay tuned for exciting updates and improvements coming soon!
 
-##  📚 Project Documentation
-You can find detailed documentation and usage instructions for this project in the online documentation:
-
-[View Documentation](https://nima70.github.io/keycloakify-tailwind-shadcn/site/) 
-
 ## 🌟 Live Demo
 You can explore and test the components used in this project through the live Storybook:
 
