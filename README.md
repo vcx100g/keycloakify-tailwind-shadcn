@@ -8,8 +8,9 @@ I strongly believe in the Keycloak ecosystem and found Keycloakify to be an extr
 
 ## 📢 Spoiler Alert
 
-🚨 **Spoiler Alert:** We've just kick-started the responsiveness for this project as of **16/9/2024**! 🚨  
-If things don't work perfectly on mobile phones or smaller screens just yet, don't worry—we're working on it! Stay tuned for improvements in the upcoming updates.
+🚨 **Spoiler Alert:** We’ve just initiated support for **multiple screen sizes** as of **16/9/2024**! 🚨  
+If things look a bit off on mobile phones or smaller screens, no worries—we're actively working on making this project fully responsive.  
+Stay tuned for exciting updates and improvements coming soon!
 
 ##  📚 Project Documentation
 You can find detailed documentation and usage instructions for this project in the online documentation:
