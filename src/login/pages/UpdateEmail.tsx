@@ -37,35 +37,22 @@ export default function UpdateEmail(props: UpdateEmailProps) {
             displayRequiredFields
             headerNode={msg("updateEmailTitle")}
         >
-            <form id="kc-update-email-form" className="flex flex-col" action={url.loginAction} method="post">
-                <UserProfileFormFields
-                    kcContext={kcContext}
-                    i18n={i18n}
-                    kcClsx={kcClsx}
-                    onIsFormSubmittableValueChange={setIsFormSubmittable}
-                    doMakeUserConfirmPassword={doMakeUserConfirmPassword}
-                />
-
+            <form id="kc-update-email-form" className=" " action={url.loginAction} method="post">
                 <div className="flex flex-col">
+                    <UserProfileFormFields
+                        kcContext={kcContext}
+                        i18n={i18n}
+                        kcClsx={kcClsx}
+                        onIsFormSubmittableValueChange={setIsFormSubmittable}
+                        doMakeUserConfirmPassword={doMakeUserConfirmPassword}
+                    />
                     <div id="kc-form-options" className={kcClsx("kcFormOptionsClass")}>
                         <div className={kcClsx("kcFormOptionsWrapperClass")} />
                     </div>
-
                     <LogoutOtherSessions kcClsx={kcClsx} i18n={i18n} />
 
-                    <div id="kc-form-buttons" className="flex space-x-2 justify-between items-center">
-                        <input
-                            disabled={!isFormSubmittable}
-                            className={cn(buttonVariants(), "w-full")}
-                            // className={kcClsx(
-                            //     "kcButtonClass",
-                            //     "kcButtonPrimaryClass",
-                            //     isAppInitiatedAction && "kcButtonBlockClass",
-                            //     "kcButtonLargeClass"
-                            // )}
-                            type="submit"
-                            value={msgStr("doSubmit")}
-                        />
+                    <div id="kc-form-buttons" className="responsive-container ">
+                        <input disabled={!isFormSubmittable} className={cn(buttonVariants(), "w-full")} type="submit" value={msgStr("doSubmit")} />
                         {isAppInitiatedAction && (
                             <Button
                                 // className={kcClsx("kcButtonClass", "kcButtonDefaultClass", "kcButtonLargeClass")}

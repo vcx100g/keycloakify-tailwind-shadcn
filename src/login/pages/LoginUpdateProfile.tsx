@@ -45,10 +45,7 @@ export default function LoginUpdateProfile(props: LoginUpdateProfileProps) {
                     doMakeUserConfirmPassword={doMakeUserConfirmPassword}
                 />
                 <div className={"mt-20 "}>
-                    <div
-                        id="kc-form-buttons"
-                        className={cn(isAppInitiatedAction ? "flex items-center justify-between flex-row space-x-2" : "", "px-5 ")}
-                    >
+                    <div id="kc-form-buttons" className={cn(isAppInitiatedAction ? "responsive-container" : "", "px-5 ")}>
                         <input
                             disabled={!isFormSubmittable}
                             className={cn(" w-full ", buttonVariants({}))}

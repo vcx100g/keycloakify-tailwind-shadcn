@@ -61,9 +61,9 @@ export default function LoginX509Info(props: PageProps<Extract<KcContext, { page
                         <div className={kcClsx("kcFormOptionsWrapperClass")} />
                     </div>
                     <div id="kc-form-buttons" className={kcClsx("kcFormButtonsClass")}>
-                        <div className="flex justify-end space-x-2">
+                        <div className="responsive-container">
                             <input
-                                className={cn(buttonVariants({ size: "lg" }))}
+                                className={cn(buttonVariants({ size: "lg" }), "w-full")}
                                 // className={kcClsx("kcButtonClass", "kcButtonPrimaryClass", "kcButtonLargeClass")}
                                 name="login"
                                 id="kc-login"
@@ -72,7 +72,7 @@ export default function LoginX509Info(props: PageProps<Extract<KcContext, { page
                             />
                             {x509.formData.isUserEnabled && (
                                 <input
-                                    className={cn(buttonVariants({ variant: "outline", size: "lg" }))}
+                                    className={cn(buttonVariants({ variant: "outline", size: "lg" }), "w-full")}
                                     // className={kcClsx("kcButtonClass", "kcButtonDefaultClass", "kcButtonLargeClass")}
                                     name="cancel"
                                     id="kc-cancel"

@@ -31,11 +31,11 @@ export default function Terms(props: PageProps<Extract<KcContext, { pageId: "ter
                 <div className="text-lg px-2 mb-3 max-h-72  bg-gray-50 dark:bg-gray-800  border">
                     <ScrollArea className="h-64 w-full">{msg("termsText")}</ScrollArea>
                 </div>
-                <form className="form-actions space-x-5 " action={url.loginAction} method="POST">
-                    <Button name="accept" size="lg" id="kc-accept" type="submit">
+                <form className="responsive-container " action={url.loginAction} method="POST">
+                    <Button name="accept" className="w-full" size="lg" id="kc-accept" type="submit">
                         {msgStr("doAccept")}
                     </Button>
-                    <Button variant={"outline"} size="lg" name="cancel" id="kc-decline" type="submit">
+                    <Button variant={"outline"} className="w-full" size="lg" name="cancel" id="kc-decline" type="submit">
                         {msgStr("doDecline")}
                     </Button>
                 </form>

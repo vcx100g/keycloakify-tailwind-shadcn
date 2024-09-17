@@ -30,7 +30,7 @@ export default function LoginUpdatePassword(props: PageProps<Extract<KcContext, 
             displayMessage={!messagesPerField.existsError("password", "password-confirm")}
             headerNode={msg("updatePasswordTitle")}
         >
-            <form id="kc-passwd-update-form" action={url.loginAction} method="post">
+            <form id="kc-passwd-update-form" action={url.loginAction} method="post" className="flex flex-col">
                 <div className={kcClsx("kcFormGroupClass")}>
                     <div className={kcClsx("kcLabelWrapperClass")}>
                         <label htmlFor="password-new" className={kcClsx("kcLabelClass")}>
@@ -94,7 +94,7 @@ export default function LoginUpdatePassword(props: PageProps<Extract<KcContext, 
                 </div>
 
                 <LogoutOtherSessions kcClsx={kcClsx} i18n={i18n} />
-                <div className=" ">
+                <div className=" responsive-container ">
                     <input className={cn(buttonVariants(), "w-full my-5")} type="submit" value={msgStr("doSubmit")} />
                     {isAppInitiatedAction && (
                         <Button
