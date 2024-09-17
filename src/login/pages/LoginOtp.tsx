@@ -32,7 +32,7 @@ export default function LoginOtp(props: PageProps<Extract<KcContext, { pageId: "
                 {otpLogin.userOtpCredentials.length > 1 && (
                     <div>
                         <div>
-                            <div className="grid grid-cols-2 gap-1 my-5">
+                            <div className="grid grid-cols-1  md:grid-cols-2 gap-1 my-5">
                                 {otpLogin.userOtpCredentials.map((otpCredential, index) => (
                                     <Fragment key={index}>
                                         {/* <div className="flex flex-row items-center space-x-2"> */}

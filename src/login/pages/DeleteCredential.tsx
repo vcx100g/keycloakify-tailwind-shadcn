@@ -3,6 +3,7 @@ import type { PageProps } from "keycloakify/login/pages/PageProps";
 import type { KcContext } from "../KcContext";
 import type { I18n } from "../i18n";
 import { buttonVariants } from "../../components/ui/button";
+import { cn } from "../../lib/utils";
 export default function DeleteCredential(props: PageProps<Extract<KcContext, { pageId: "delete-credential.ftl" }>, I18n>) {
     const { kcContext, i18n, doUseDefaultCss, Template, classes } = props;
 
@@ -28,16 +29,16 @@ export default function DeleteCredential(props: PageProps<Extract<KcContext, { p
                 {msg("deleteCredentialMessage", credentialLabel)}
             </div>
             <form className="form-actions" action={url.loginAction} method="POST">
-                <div className="space-x-2 ">
+                <div className="responsive-container">
                     <input
-                        className={buttonVariants({ variant: "default" })}
+                        className={cn(buttonVariants({ variant: "default" }), "w-full")}
                         name="accept"
                         id="kc-accept"
                         type="submit"
                         value={msgStr("doConfirmDelete")}
                     />
                     <input
-                        className={buttonVariants({ variant: "secondary" })}
+                        className={cn(buttonVariants({ variant: "secondary" }), "w-full")}
                         name="cancel-aia"
                         value={msgStr("doCancel")}
                         id="kc-decline"

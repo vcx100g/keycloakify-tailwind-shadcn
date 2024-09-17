@@ -4,7 +4,7 @@ import type { KcContext } from "../KcContext";
 import type { I18n } from "../i18n";
 import { Input } from "../../components/ui/input";
 import { Button, buttonVariants } from "../../components/ui/button";
-
+import { cn } from "../../lib/utils";
 export default function DeleteAccountConfirm(props: PageProps<Extract<KcContext, { pageId: "delete-account-confirm.ftl" }>, I18n>) {
     const { kcContext, i18n, doUseDefaultCss, Template, classes } = props;
 
@@ -30,10 +30,10 @@ export default function DeleteAccountConfirm(props: PageProps<Extract<KcContext,
                     <li>{msg("errasingData")}</li>
                 </ul>
                 <p className="delete-account-text">{msg("finalDeletionConfirmation")}</p>
-                <div id="kc-form-buttons" className="flex">
-                    <Input className={buttonVariants({ variant: "default" })} type="submit" value={msgStr("doConfirmDelete")} />
+                <div id="kc-form-buttons" className="responsive-container">
+                    <Input className={cn(buttonVariants({ variant: "default" }), "w-full")} type="submit" value={msgStr("doConfirmDelete")} />
                     {triggered_from_aia && (
-                        <Button style={{ marginLeft: "calc(100% - 220px)" }} type="submit" name="cancel-aia" value="true" variant={"secondary"}>
+                        <Button className="w-full" type="submit" name="cancel-aia" value="true" variant={"secondary"}>
                             {msgStr("doCancel")}
                         </Button>
                     )}

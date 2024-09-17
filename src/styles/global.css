@@ -77,3 +77,6 @@ input[type="checkbox"], input[type="radio"] {
   vertical-align: middle; /* Vertically align checkbox and radio buttons with text */
   line-height: normal; /* Ensure normal line height */
 }
+.responsive-container {
+  @apply flex flex-col space-y-2 md:flex-row md:space-y-0 md:space-x-2;
+}

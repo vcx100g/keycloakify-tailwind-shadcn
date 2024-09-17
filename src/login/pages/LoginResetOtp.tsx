@@ -30,7 +30,7 @@ export default function LoginResetOtp(props: PageProps<Extract<KcContext, { page
                 <div className={kcClsx("kcInputWrapperClass")}>
                     <div className={kcClsx("kcInfoAreaWrapperClass")}>
                         <p id="kc-otp-reset-form-description">{msg("otp-reset-description")}</p>
-                        <div className="grid grid-cols-2 gap-5">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                             {configuredOtpCredentials.userOtpCredentials.map((otpCredential, index) => (
                                 <div key={otpCredential.id} className="flex items-center space-x-2 ">
                                     <input

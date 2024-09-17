@@ -46,39 +46,7 @@ export default function Login(props: PageProps<Extract<KcContext, { pageId: "log
                     </span>
                 </div>
             }
-            socialProvidersNode={
-                <SocialProviders social={social} kcClsx={kcClsx} clsx={clsx} msg={msg} realm={realm} />
-                // <>
-                //     {realm.password && social.providers !== undefined && social.providers.length !== 0 && (
-                //         <div id="kc-social-providers" className="mt-5 space-y-7">
-                //             <h2 className="text-center text-lg mt-7">{msg("identity-provider-login-label")}</h2>
-                //             <div
-                //                 className={clsx(
-                //                     "text-lg grid gap-2", // Apply a grid and gap between items
-                //                     social.providers.length > 1 ? "grid-cols-2" : "grid-cols-1" // Conditional grid columns
-                //                 )}
-                //             >
-                //                 {social.providers.map((...[p, , providers]) => (
-                //                     <div
-                //                         key={p.alias}
-                //                         className=" items-center bg-accent  w-full py-1 my-1.5 border rounded-lg px-3 hover:bg-primary hover:text-primary-foreground"
-                //                     >
-                //                         <a
-                //                             id={`social-${p.alias}`}
-                //                             className="flex flex-row items-center justify-center  w-full py-2 "
-                //                             type="button"
-                //                             href={p.loginUrl}
-                //                         >
-                //                             {p.iconClasses && <i className={clsx(p.iconClasses)} aria-hidden="true"></i>}
-                //                             <span className="mx-3" dangerouslySetInnerHTML={{ __html: p.displayName }}></span>
-                //                         </a>
-                //                     </div>
-                //                 ))}
-                //             </div>
-                //         </div>
-                //     )}
-                // </>
-            }
+            socialProvidersNode={<SocialProviders social={social} kcClsx={kcClsx} clsx={clsx} msg={msg} realm={realm} />}
         >
             <div id="kc-form">
                 <div id="kc-form-wrapper">
@@ -153,7 +121,7 @@ export default function Login(props: PageProps<Extract<KcContext, { pageId: "log
                                 )}
                             </div>
 
-                            <div className="flex flex-row items-center justify-between text-lg ">
+                            <div className="responsive-container justify-between text-lg ">
                                 <div>
                                     {realm.rememberMe && !usernameHidden && (
                                         <div className="flex items-center space-x-2 ">

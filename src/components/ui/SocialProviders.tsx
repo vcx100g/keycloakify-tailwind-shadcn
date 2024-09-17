@@ -40,9 +40,9 @@ export const SocialProviders: React.FC<SocialProvidersProps> = ({
                             </h2>
                             <div
                                 className={clsx(
-                                    "text-lg grid gap-2", // Apply a grid and gap between items
+                                    "text-lg grid gap-2 grid-cols-1", // Apply a grid and gap between items
                                     social.providers.length > 1
-                                        ? "grid-cols-2"
+                                        ? "md:grid-cols-2"
                                         : "grid-cols-1" // Conditional grid columns
                                 )}
                             >

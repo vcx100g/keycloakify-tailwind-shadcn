@@ -177,15 +177,15 @@ export default function LoginRecoveryAuthnCodeConfig(props: PageProps<Extract<Kc
                 </ol>
 
                 {/* actions */}
-                <div className="flex justify-between space-x-3">
+                <div className="responsive-container ">
                     <Button id="printRecoveryCodes" variant="secondary" size="lg" type="button" className="flex-1 px-2">
-                        <i className="pficon-print" aria-hidden="true" /> <span className="mx-2">{msg("recovery-codes-print")}</span>
+                        <i className="pficon-print" aria-hidden="true" /> <span className="mx-2 py-2">{msg("recovery-codes-print")}</span>
                     </Button>
                     <Button id="downloadRecoveryCodes" variant="secondary" size="lg" type="button" className="flex-1 px-2">
-                        <i className="pficon-save" aria-hidden="true" /> <span className="mx-2">{msg("recovery-codes-download")}</span>
+                        <i className="pficon-save" aria-hidden="true" /> <span className="mx-2 py-2">{msg("recovery-codes-download")}</span>
                     </Button>
                     <Button id="copyRecoveryCodes" variant="secondary" size="lg" type="button" className="flex-1 px-2">
-                        <i className="pficon-blueprint" aria-hidden="true" /> <span className="mx-2">{msg("recovery-codes-copy")}</span>
+                        <i className="pficon-blueprint" aria-hidden="true" /> <span className="mx-2 py-2">{msg("recovery-codes-copy")}</span>
                     </Button>
                 </div>
 

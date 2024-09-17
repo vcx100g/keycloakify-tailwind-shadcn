@@ -6,7 +6,7 @@ import type { KcContext } from "../KcContext";
 import type { I18n } from "../i18n";
 import { PasswordWrapper } from "../../components/ui/PasswordWrapper";
 import { Input } from "../../components/ui/input";
-import { buttonVariants } from "../../components/ui/button";
+import { buttonVariants, Button } from "../../components/ui/button";
 import { cn } from "../../lib/utils";
 import { checkboxVariants } from "../../components/ui/checkbox";
 export default function LoginUpdatePassword(props: PageProps<Extract<KcContext, { pageId: "login-update-password.ftl" }>, I18n>) {
@@ -30,7 +30,7 @@ export default function LoginUpdatePassword(props: PageProps<Extract<KcContext, 
             displayMessage={!messagesPerField.existsError("password", "password-confirm")}
             headerNode={msg("updatePasswordTitle")}
         >
-            <form id="kc-passwd-update-form" className={kcClsx("kcFormClass")} action={url.loginAction} method="post">
+            <form id="kc-passwd-update-form" action={url.loginAction} method="post">
                 <div className={kcClsx("kcFormGroupClass")}>
                     <div className={kcClsx("kcLabelWrapperClass")}>
                         <label htmlFor="password-new" className={kcClsx("kcLabelClass")}>
@@ -92,21 +92,22 @@ export default function LoginUpdatePassword(props: PageProps<Extract<KcContext, 
                         )}
                     </div>
                 </div>
-                <div>
-                    <LogoutOtherSessions kcClsx={kcClsx} i18n={i18n} />
-                    <div id="kc-form-buttons">
-                        <input className={cn(buttonVariants(), "w-full my-5")} type="submit" value={msgStr("doSubmit")} />
-                        {isAppInitiatedAction && (
-                            <button
-                                className={kcClsx("kcButtonClass", "kcButtonDefaultClass", "kcButtonLargeClass")}
-                                type="submit"
-                                name="cancel-aia"
-                                value="true"
-                            >
-                                {msg("doCancel")}
-                            </button>
-                        )}
-                    </div>
+
+                <LogoutOtherSessions kcClsx={kcClsx} i18n={i18n} />
+                <div className=" ">
+                    <input className={cn(buttonVariants(), "w-full my-5")} type="submit" value={msgStr("doSubmit")} />
+                    {isAppInitiatedAction && (
+                        <Button
+                            // className={kcClsx("kcButtonClass", "kcButtonDefaultClass", "kcButtonLargeClass")}
+                            className="w-full"
+                            type="submit"
+                            name="cancel-aia"
+                            value="true"
+                            variant={"outline"}
+                        >
+                            {msg("doCancel")}
+                        </Button>
+                    )}
                 </div>
             </form>
         </Template>

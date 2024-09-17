@@ -22,17 +22,17 @@ export default function LoginIdpLinkEmail(props: PageProps<Extract<KcContext, { 
                 {msg("emailLinkIdp1", idpAlias, brokerContext.username, realm.displayName)}
             </p>
             <p id="instruction2" className="instruction">
-                {msg("emailLinkIdp2")}{" "}
+                {msg("emailLinkIdp2")}
                 <a href={url.loginAction} className={`${buttonVariants({ variant: "link" })} px-0 py-0`}>
                     {msg("doClickHere")}
-                </a>{" "}
+                </a>
                 {msg("emailLinkIdp3")}
             </p>
             <p id="instruction3" className="instruction">
-                {msg("emailLinkIdp4")}{" "}
+                {msg("emailLinkIdp4")}
                 <a href={url.loginAction} className={`${buttonVariants({ variant: "link" })} px-0 py-0`}>
                     {msg("doClickHere")}
-                </a>{" "}
+                </a>
                 {msg("emailLinkIdp5")}
             </p>
         </Template>

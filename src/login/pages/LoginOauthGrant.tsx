@@ -77,10 +77,10 @@ export default function LoginOauthGrant(props: PageProps<Extract<KcContext, { pa
 
                         <div id="kc-form-buttons">
                             {/* <div className={kcClsx("kcFormButtonsWrapperClass")}> */}
-                            <div className="flex items-center space-x-2 justify-end">
+                            <div className="responsive-container">
                                 <input
                                     // className={kcClsx("kcButtonClass", "kcButtonPrimaryClass", "kcButtonLargeClass")}
-                                    className={`${buttonVariants({ size: "lg" })} `}
+                                    className={`${buttonVariants({ size: "lg" })} w-full`}
                                     name="accept"
                                     id="kc-login"
                                     type="submit"
@@ -88,7 +88,7 @@ export default function LoginOauthGrant(props: PageProps<Extract<KcContext, { pa
                                 />
                                 <input
                                     // className={kcClsx("kcButtonClass", "kcButtonDefaultClass", "kcButtonLargeClass")}
-                                    className={`${buttonVariants({ variant: "outline", size: "lg" })} `}
+                                    className={`${buttonVariants({ variant: "outline", size: "lg" })} w-full`}
                                     name="cancel"
                                     id="kc-cancel"
                                     type="submit"
