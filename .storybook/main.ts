@@ -1,4 +1,5 @@
 import type { StorybookConfig } from "@storybook/react-webpack5";
+
 import path from "path";
 const config: StorybookConfig = {
     stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
@@ -6,8 +7,7 @@ const config: StorybookConfig = {
         "@storybook/preset-create-react-app",
         "@storybook/addon-links",
         "@storybook/addon-essentials",
-        "@storybook/addon-interactions",
-        
+        "@storybook/addon-interactions"
     ],
     webpackFinal: async config => {
         // Add alias for TypeScript paths

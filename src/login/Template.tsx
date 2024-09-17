@@ -9,6 +9,7 @@ import { useSetClassName } from "keycloakify/tools/useSetClassName";
 import type { I18n } from "./i18n";
 import type { KcContext } from "./KcContext";
 import { Button } from "../components/ui/button";
+import { ModeToggle } from "../components/ui/mode-toggle";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "../components/ui/card";
 import "../styles/global.css";
 import { GlobeAltIcon } from "@heroicons/react/24/outline";
@@ -135,38 +136,36 @@ export function Template(props: TemplateProps<KcContext, I18n>) {
         return (
             <div>
                 {realm.internationalizationEnabled && (assert(locale !== undefined), locale.supported.length > 1) && (
-                    <div className="mt-0.5 -mr-3" id="kc-locale">
-                        <div id="kc-locale-wrapper" className="">
-                            <div>
-                                <DropdownMenu>
-                                    <DropdownMenuTrigger asChild>
-                                        <Button
-                                            tabIndex={1}
-                                            variant="secondary"
-                                            size="sm"
-                                            aria-label={msgStr("languages")}
-                                            aria-haspopup="true"
-                                            aria-expanded="false"
-                                            aria-controls="language-switch1"
-                                            className="px-3 py-0"
-                                        >
-                                            <div className="flex space-x-2">
-                                                <GlobeAltIcon className="h-5 w-5" />
-                                                <span>{labelBySupportedLanguageTag[currentLanguageTag]}</span>
-                                            </div>
-                                        </Button>
-                                    </DropdownMenuTrigger>
-                                    <DropdownMenuContent id="language-switch1" role="menu">
-                                        {locale.supported.map(({ languageTag }, i) => (
-                                            <DropdownMenuItem key={languageTag} role="none">
-                                                <a role="menuitem" id={`language-${i + 1}`} href={getChangeLocaleUrl(languageTag)}>
-                                                    {labelBySupportedLanguageTag[languageTag]}
-                                                </a>
-                                            </DropdownMenuItem>
-                                        ))}
-                                    </DropdownMenuContent>
-                                </DropdownMenu>
-                            </div>
+                    <div className="mt-0.5 -mr-3  justify-end">
+                        <div id="kc-locale-wrapper" className="flex  justify-end">
+                            <DropdownMenu>
+                                <DropdownMenuTrigger asChild>
+                                    <Button
+                                        tabIndex={1}
+                                        variant="secondary"
+                                        size="sm"
+                                        aria-label={msgStr("languages")}
+                                        aria-haspopup="true"
+                                        aria-expanded="false"
+                                        aria-controls="language-switch1"
+                                        className="px-3 py-0"
+                                    >
+                                        <div className="flex space-x-2">
+                                            <GlobeAltIcon className="h-5 w-5" />
+                                            <span>{labelBySupportedLanguageTag[currentLanguageTag]}</span>
+                                        </div>
+                                    </Button>
+                                </DropdownMenuTrigger>
+                                <DropdownMenuContent id="language-switch1" role="menu">
+                                    {locale.supported.map(({ languageTag }, i) => (
+                                        <DropdownMenuItem key={languageTag} role="none">
+                                            <a role="menuitem" id={`language-${i + 1}`} href={getChangeLocaleUrl(languageTag)}>
+                                                {labelBySupportedLanguageTag[languageTag]}
+                                            </a>
+                                        </DropdownMenuItem>
+                                    ))}
+                                </DropdownMenuContent>
+                            </DropdownMenu>
                         </div>
                     </div>
                 )}
@@ -174,14 +173,16 @@ export function Template(props: TemplateProps<KcContext, I18n>) {
         );
     };
     return (
-        <div className="bg-background  min-h-screen  flex flex-col items-center justify-center  prose dark:prose-invert max-w-none">
-            <div id="kc-header-wrapper" className="text-center text-foreground">
+        <div className="bg-background  min-h-screen   flex flex-col items-center justify-center  prose dark:prose-invert max-w-none">
+            <div id="kc-header-wrapper" className="text-center text-foreground hide md:visible">
                 {msgStr("loginTitleHtml", realm.displayNameHtml)}
             </div>
-            <Card className="py-0 px-3 w-[30rem] md:-[40rem] shadow-2xl">
-                {languageSelector()}
-                <CardTitle className="py-0 my-0 bg-slate-500"></CardTitle>
-                <CardContent className="space-y-8 py-5">
+            <Card className="py-0 px-3  md:-[40rem] shadow-2xl w-full min-h-screen  md:w-[30rem] sm:min-h-fit ">
+                <CardContent className="space-y-8 pb-5 ">
+                    <div className="flex justify-end space-x-4 pt-2">
+                        {languageSelector()}
+                        <ModeToggle />
+                    </div>
                     <header className="text-center  ">
                         {(() => {
                             const node = !(auth !== undefined && auth.showUsername && !auth.showResetCredentials) ? (
