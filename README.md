@@ -6,6 +6,12 @@ This project is designed to be developer-friendly, making it easy to customize t
 
 I strongly believe in the Keycloak ecosystem and found Keycloakify to be an extremely stable and reliable tool for creating custom Keycloak themes. My goal is to further enhance Keycloakify for this specific front-end use case and to make it easier for others to build on top of my work.
 
+## 📢 Spoiler Alert
+
+🚨 **Spoiler Alert:** We’ve just initiated support for **multiple screen sizes** as of **16/9/2024**! 🚨  
+If things look a bit off on mobile phones or smaller screens, no worries—we're actively working on making this project fully responsive.  
+Stay tuned for exciting updates and improvements coming soon!
+
 ##  📚 Project Documentation
 You can find detailed documentation and usage instructions for this project in the online documentation:
 
