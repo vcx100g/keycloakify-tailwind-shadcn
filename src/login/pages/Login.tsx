@@ -121,7 +121,7 @@ export default function Login(props: PageProps<Extract<KcContext, { pageId: "log
                                 )}
                             </div>
 
-                            <div className="responsive-container justify-between text-lg ">
+                            <div className="space-y-2 md:space-y-0 md:flex md:justify-between text-lg ">
                                 <div>
                                     {realm.rememberMe && !usernameHidden && (
                                         <div className="flex items-center space-x-2 ">
