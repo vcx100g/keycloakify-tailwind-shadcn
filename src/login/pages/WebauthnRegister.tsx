@@ -230,7 +230,7 @@ export default function WebauthnRegister(props: PageProps<Extract<KcContext, { p
                     <LogoutOtherSessions kcClsx={kcClsx} i18n={i18n} />
                 </div>
             </form>
-            <div className="flex space-x-2 items-center justify-between">
+            <div className="responsive-container ">
                 <input
                     type="submit"
                     // className={kcClsx("kcButtonClass", "kcButtonPrimaryClass", "kcButtonBlockClass", "kcButtonLargeClass")}
