@@ -6,6 +6,16 @@ This project is designed to be developer-friendly, making it easy to customize t
 
 I strongly believe in the Keycloak ecosystem and found Keycloakify to be an extremely stable and reliable tool for creating custom Keycloak themes. My goal is to further enhance Keycloakify for this specific front-end use case and to make it easier for others to build on top of my work.
 
+<iframe 
+  width="560" 
+  height="315" 
+  src="https://www.youtube.com/embed/xmQ5ULhF1Dk" 
+  title="YouTube video player" 
+  frameborder="0" 
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+  allowfullscreen>
+</iframe>
+
 [![Watch the video](https://img.youtube.com/vi/xmQ5ULhF1Dk/maxresdefault.jpg)](https://youtu.be/xmQ5ULhF1Dk)
 
 ### [Watch this video on YouTube](https://youtu.be/xmQ5ULhF1Dk)
