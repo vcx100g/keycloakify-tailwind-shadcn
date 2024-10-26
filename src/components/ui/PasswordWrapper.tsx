@@ -43,23 +43,6 @@ export function PasswordWrapper(props: {
                         <EyeIcon className="h-5 w-5 " aria-hidden="true" />
                     )}
                 </div>
-                {/* <i
-                    className={kcClsx(
-                        isPasswordRevealed
-                            ? "kcFormPasswordVisibilityIconHide"
-                            : "kcFormPasswordVisibilityIconShow"
-                    )}
-                    aria-hidden
-                /> */}
-
-                {/* <i
-                    className={kcClsx(
-                        isPasswordRevealed
-                            ? "kcFormPasswordVisibilityIconHide"
-                            : "kcFormPasswordVisibilityIconShow"
-                    )}
-                    aria-hidden
-                /> */}
             </Button>
         </div>
     );

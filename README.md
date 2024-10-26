@@ -33,7 +33,6 @@ Contributions are highly encouraged! Whether you're passionate about Keycloak, T
 ### [Watch this video on YouTube](https://youtu.be/LG5Wv7dsh4I)
 
 ## 🚀 Quick Start
-
 Clone this repository:
 
 ```bash
@@ -45,13 +44,120 @@ Install dependencies:
 ```bash
 npm install --legacy-peer-deps
 ```
-
 Run the project locally:
 
 ```bash
+
 npm run prestart
 npm run storybook
 ```
+
+<img src="./public/docs/storybook-default.gif" alt="Storybook default view"/>
+
+## Changing the Default Theme
+Visit the ShadCN themes website:
+https://ui.shadcn.com/themes
+
+1. Select Customize.
+2. Choose your theme.
+3. Click Copy Code to copy the base layer to your clipboard.
+
+<img src="./public/docs/shadcn-theme-customization.gif" alt="ShadCN theme customization"/>
+
+4. Update the base layer by pasting the copied code into src/styles/global.css.
+5. Check the result.
+
+<img src="./public/docs/updated-theme.png" alt="Updated theme preview"/>
+
+## Changing a Component
+To modify a component, for example, you can change rounded-md to rounded-full in src/components/button.tsx. Here’s the updated code:
+```typescript
+
+const buttonVariants = cva(
+    "inline-flex items-center justify-center whitespace-nowrap rounded-full text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:scale-105",
+    {
+        variants: {
+            variant: {
+                default:
+                    "bg-primary text-primary-foreground hover:bg-primary/50 hover:dark:bg-primary/30 hover:dark:text-secondary-foreground ",
+                destructive:
+                    "bg-destructive text-destructive-foreground hover:bg-destructive/90",
+                outline:
+                    "border border-input border-foreground bg-background text-foreground hover:bg-accent hover:text-accent-foreground",
+                secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
+                ghost: "hover:bg-accent hover:text-accent-foreground",
+                link: "text-primary bg-background underline-offset-4 hover:underline"
+            },
+            size: {
+                default: "h-10 px-4 py-2",
+                sm: "h-9 rounded-md px-3",
+                lg: "h-11 rounded-md px-8",
+                icon: "h-10 w-10"
+            }
+        },
+        defaultVariants: {
+            variant: "default",
+            size: "default"
+        }
+    }
+);
+```
+You can verify the changes below:
+
+<img src="./public/docs/button.png" alt="Updated button component"/>
+
+### Login Page Changes
+Below are images of the login page before and after updating the button component.
+
+Before:
+
+<img src="./public/docs/component-before.png" alt="Login page before update"/>
+
+After:
+
+<img src="./public/docs/component-after.png" alt="Login page after update"/>
+
+
+
+## Install Maven:
+You need Maven installed to build and test the Keycloak theme.
+
+macOS:
+
+```bash
+brew install maven
+```
+
+Debian/Ubuntu:
+
+```bash
+sudo apt-get install maven
+```
+
+Windows:
+
+```bash
+choco install openjdk && choco install maven
+```
+
+## Testing the Component with Docker
+
+
+Run this command:
+```bash
+npx keycloakify start-keycloak
+```
+> ** Note: Keycloak version 26 is not supported yet. **
+
+## 📦 Building the Keycloak Theme
+
+```bash
+npm run build-keycloak-theme
+```
+
+Keycloakify generates .jar files for different Keycloak versions by default. You can customize this to suit your deployment needs. Learn more in the Keycloakify documentation.
+
+
 
 ## 🛠 Tailwind CSS & ShadCN UI Integration
 
@@ -98,38 +204,6 @@ With the integration of Tailwind CSS, you get access to utility-first CSS for ra
 -   Login Recovery Authn Code input
 
 Stay tuned as more pages are upgraded with Tailwind CSS and ShadCN UI components!
-
-## 📦 Building the Keycloak Theme
-
-You need Maven installed to build the Keycloak theme.
-
-#### Install Maven:
-
-macOS:
-
-```bash
-brew install maven
-```
-
-Debian/Ubuntu:
-
-```bash
-sudo apt-get install maven
-```
-
-Windows:
-
-```bash
-choco install openjdk && choco install maven
-```
-
-Build the Keycloak theme:
-
-```bash
-npm run build-keycloak-theme
-```
-
-Keycloakify generates .jar files for different Keycloak versions by default. You can customize this to suit your deployment needs. Learn more in the Keycloakify documentation.
 
 ## 🤝 How You Can Contribute
 
