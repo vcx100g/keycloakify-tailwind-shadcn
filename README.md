@@ -40,10 +40,15 @@ Clone this repository:
 git clone https://github.com/nima70/keycloakify-tailwind-shadcn.git
 ```
 
-Run the project locally:
+Install dependencies:
 
 ```bash
 npm install --legacy-peer-deps
+```
+
+Run the project locally:
+
+```bash
 npm run prestart
 npm run storybook
 ```
