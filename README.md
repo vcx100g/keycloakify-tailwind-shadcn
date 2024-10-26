@@ -43,13 +43,12 @@ git clone https://github.com/nima70/keycloakify-tailwind-shadcn.git
 Install dependencies:
 
 ```bash
-yarn install  # Or use pnpm or bun, just delete yarn.lock if switching.
+npm install --legacy-peer-deps
 ```
 
 Run the project locally:
 
 ```bash
-npm install --legacy-peer-deps
 npm run prestart
 npm run storybook
 ```
