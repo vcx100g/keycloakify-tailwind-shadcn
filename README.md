@@ -40,12 +40,6 @@ Clone this repository:
 git clone https://github.com/nima70/keycloakify-tailwind-shadcn.git
 ```
 
-Install dependencies:
-
-```bash
-yarn install  # Or use pnpm or bun, just delete yarn.lock if switching.
-```
-
 Run the project locally:
 
 ```bash
