@@ -1,5 +1,5 @@
 {
-  "destDirPath": "E:\\projects\\hope_v2\\keycloakify-starter-webpack\\public\\keycloak-resources",
+  "destDirPath": "D:\\playground\\keycloakify-tailwind-shadcn\\public\\keycloak-resources",
   "keycloakifyVersion": "10.0.5",
   "buildContext": {
     "loginThemeResourcesFromKeycloakVersion": "10.0.5",

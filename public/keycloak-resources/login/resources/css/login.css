@@ -1,15 +1,15 @@
 /* Patternfly CSS places a "bg-login.jpg" as the background on this ".login-pf" class.
    This clashes with the "keycloak-bg.png' background defined on the body below.
    Therefore the Patternfly background must be set to none. */
-   .login-pf {
+.login-pf {
     background: none;
 }
 
-/* .login-pf body {
+.login-pf body {
     background: url("../img/keycloak-bg.png") no-repeat center center fixed;
     background-size: cover;
     height: 100%;
-} */
+}
 
 textarea.pf-c-form-control {
 	height: auto;
@@ -30,7 +30,7 @@ p.instruction {
 h1#kc-page-title {
     margin-top: 10px;
 }
-/* 
+
 #kc-locale ul {
     background-color: var(--pf-global--BackgroundColor--100);
     display: none;
@@ -61,7 +61,7 @@ h1#kc-page-title {
     color: var(--pf-global--Color--200);
     text-align: right;
     font-size: var(--pf-global--FontSize--sm);
-} */
+}
 
 button#kc-current-locale-link::after {
     content: "\2c5";
@@ -178,10 +178,10 @@ div.kc-logo-text span {
     display: block;
 }
 
-/* #kc-form-options .checkbox {
+#kc-form-options .checkbox {
     margin-top: 0;
     color: #72767b;
-} */
+}
 
 #kc-terms-text {
     margin-bottom: 20px;
@@ -224,12 +224,12 @@ ul#kc-totp-supported-apps {
     max-height:150px;
 }
 
-/* #kc-totp-secret-key {
+#kc-totp-secret-key {
     background-color: #fff;
     color: #333333;
     font-size: 16px;
     padding: 10px 0;
-} */
+}
 
 /* OAuth */
 
@@ -373,18 +373,18 @@ ul#kc-totp-supported-apps {
         padding-right: 80px;
     }
 
-    /* #kc-locale {
+    #kc-locale {
         position: relative;
         text-align: right;
         z-index: 9999;
-    } */
+    }
 }
 
 @media (max-width: 767px) {
 
-    /* .login-pf body {
+    .login-pf body {
         background: white;
-    } */
+    }
 
     #kc-header {
         padding-left: 15px;
@@ -422,14 +422,14 @@ ul#kc-totp-supported-apps {
         padding-bottom: 15px;
     }
 
-    /* #kc-locale {
+    #kc-locale {
         position: absolute;
         width: 200px;
         top: 20px;
         right: 20px;
         text-align: right;
         z-index: 9999;
-    } */
+    }
 }
 
 @media (min-height: 646px) {

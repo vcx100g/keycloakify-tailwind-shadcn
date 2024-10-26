@@ -49,7 +49,9 @@ yarn install  # Or use pnpm or bun, just delete yarn.lock if switching.
 Run the project locally:
 
 ```bash
-npm start
+npm install --legacy-peer-deps
+npm run prestart
+npm run storybook
 ```
 
 ## 🛠 Tailwind CSS & ShadCN UI Integration
