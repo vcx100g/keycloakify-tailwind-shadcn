@@ -33,6 +33,10 @@ Contributions are highly encouraged! Whether you're passionate about Keycloak, T
 ### [Watch this video on YouTube](https://youtu.be/LG5Wv7dsh4I)
 
 ## 🚀 Quick Start
+[![Watch the video](https://img.youtube.com/vi/5pBc1C1wgiQ/maxresdefault.jpg)](https://youtu.be/5pBc1C1wgiQ)
+
+### [Watch this video on YouTube](https://youtu.be/5pBc1C1wgiQ)
+
 Clone this repository:
 
 ```bash
