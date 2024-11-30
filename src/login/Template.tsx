@@ -173,7 +173,7 @@ export function Template(props: TemplateProps<KcContext, I18n>) {
         );
     };
     return (
-        <div className="bg-background  min-h-screen   flex flex-col items-center justify-center  prose dark:prose-invert max-w-none">
+        <div className="bg-gray-200  min-h-screen   flex flex-col items-center justify-center  prose dark:prose-invert max-w-none">
             <div id="kc-header-wrapper" className="text-center text-foreground hide md:visible">
                 {msgStr("loginTitleHtml", realm.displayNameHtml)}
             </div>
@@ -208,7 +208,7 @@ export function Template(props: TemplateProps<KcContext, I18n>) {
                                                 {msg("requiredFields")}
                                             </span>
                                         </div>
-                                        <div className="col-md-10">{node}</div>
+                                        <div className="col-md-12">{node}</div>
                                     </div>
                                 );
                             }

@@ -79,13 +79,14 @@ export default function UserProfileFormFields(props: UserProfileFormFieldsProps<
                                     display: attribute.name === "password-confirm" && !doMakeUserConfirmPassword ? "none" : undefined
                                 }}
                             >
-                                <div className="mx-6">
+                                <div className="">
                                     <label htmlFor={attribute.name} className="">
                                         {advancedMsg(attribute.displayName ?? "")}
                                     </label>
                                     {attribute.required && <span className="text-danger"> *</span>}
                                 </div>
-                                <div className={kcClsx("kcInputWrapperClass")}>
+                                {/* <div className={kcClsx("kcInputWrapperClass")}> */}
+                                <div className="">
                                     {attribute.annotations.inputHelperTextBefore !== undefined && (
                                         <div
                                             className={kcClsx("kcInputHelperTextBeforeClass")}

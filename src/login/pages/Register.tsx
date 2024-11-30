@@ -61,17 +61,9 @@ export default function Register(props: RegisterProps) {
                         </div>
                     </div>
                 )}
-                <div className="  ">
-                    <div className="mx-2">
-                        <div>
-                            <span>
-                                <a href={url.loginUrl} className={buttonVariants({ variant: "link" })}>
-                                    {msg("backToLogin")}
-                                </a>
-                            </span>
-                        </div>
-                    </div>
-                    <div id="kc-form-buttons" className="px-5">
+                <div className="mt-12">
+                    
+                    <div id="kc-form-buttons" className="">
                         <Button
                             disabled={!isFormSubmittable || (termsAcceptanceRequired && !areTermsAccepted)}
                             // className={kcClsx("kcButtonClass", "kcButtonPrimaryClass", "kcButtonBlockClass", "kcButtonLargeClass")}
@@ -82,6 +74,16 @@ export default function Register(props: RegisterProps) {
                         >
                             {msgStr("doRegister")}
                         </Button>
+                    </div>
+
+                    <div className="mt-6">
+                        <div>
+                            <span>
+                                <a href={url.loginUrl} className={buttonVariants({ variant: "link" })}>
+                                    {msg("backToLogin")}
+                                </a>
+                            </span>
+                        </div>
                     </div>
                 </div>
             </form>
