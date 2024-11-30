@@ -173,7 +173,7 @@ export function Template(props: TemplateProps<KcContext, I18n>) {
         );
     };
     return (
-        <div className="bg-gray-200  min-h-screen   flex flex-col items-center justify-center  prose dark:prose-invert max-w-none">
+        <div className="min-h-screen flex flex-col items-center justify-center  prose dark:prose-invert max-w-none">
             <div id="kc-header-wrapper" className="text-center text-foreground scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl pt-0">
                 {msgStr("loginTitleHtml", realm.displayName)}
             </div>

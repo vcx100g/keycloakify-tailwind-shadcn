@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+body.kcBodyClass {
+    /* background: url(./assets/img/bg.webp) no-repeat center center fixed;
+    background-size: cover; */
+    @apply bg-gray-100;
+  }
+
 #kc-header-wrapper {
   padding-top: 0 !important;
 }
