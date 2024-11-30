@@ -136,8 +136,8 @@ export function Template(props: TemplateProps<KcContext, I18n>) {
         return (
             <div>
                 {realm.internationalizationEnabled && (assert(locale !== undefined), locale.supported.length > 1) && (
-                    <div className="mt-0.5 -mr-3  justify-end">
-                        <div id="kc-locale-wrapper" className="flex  justify-end">
+                    <div className="justify-end">
+                        <div id="kc-locale-wrapper" className="flex justify-end">
                             <DropdownMenu>
                                 <DropdownMenuTrigger asChild>
                                     <Button
@@ -148,7 +148,7 @@ export function Template(props: TemplateProps<KcContext, I18n>) {
                                         aria-haspopup="true"
                                         aria-expanded="false"
                                         aria-controls="language-switch1"
-                                        className="px-3 py-0"
+                                        className="h-10"
                                     >
                                         <div className="flex space-x-2">
                                             <GlobeAltIcon className="h-5 w-5" />
@@ -179,7 +179,7 @@ export function Template(props: TemplateProps<KcContext, I18n>) {
             </div>
             <Card className="py-0 px-3  md:-[40rem] shadow-2xl w-full min-h-screen  md:w-[30rem] sm:min-h-fit ">
                 <CardContent className="space-y-8 pb-5 ">
-                    <div className="flex justify-end space-x-4 pt-2">
+                    <div className="flex justify-end space-x-2 pt-2">
                         {languageSelector()}
                         <ModeToggle />
                     </div>
