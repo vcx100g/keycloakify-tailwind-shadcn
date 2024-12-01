@@ -5,8 +5,12 @@
 body.kcBodyClass {
     /* background: url(./assets/img/bg.webp) no-repeat center center fixed;
     background-size: cover; */
-    @apply bg-gray-100;
-  }
+    @apply bg-gray-100 dark:bg-gray-900;  
+}
+
+h1#kc-page-title {
+  @apply text-xl !important;
+}
 
 #kc-header-wrapper {
   padding-top: 0 !important;
@@ -72,7 +76,7 @@ body.kcBodyClass {
   
   @layer components {
     .link-style {
-      @apply underline underline-offset-4 font-semibold text-lg;
+      @apply underline underline-offset-4 font-semibold;
     }
   }
   @layer components {
